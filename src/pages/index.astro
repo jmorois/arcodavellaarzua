@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<BaseLayout title="Arco da Vella · Café Bar en Arzúa" description="Mas de 30 años cocinando Raciones, bocadillos, hamburguesas y buen ambiente en Arzúa.">
+  <Fragment slot="header"><Header /></Fragment>
+
+  <section class="hero container">
+    <div>
+      <h1>Benvidos a Arco da Vella</h1>
+      <p>Tapas, bocados e bo ambiente no corazón de Arzúa.</p>
+      <div class="buttons">
+        <a class="btn primary" href="/menu">Ver carta</a>
+        <a class="btn" href="tel:881107150">Llamar 881 107 150</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>Nuestros imprescindibles</h2>
+    <div class="grid">
+      <article class="card">
+        <img src="/images/burger-drink.jpg" alt="Hamburguesa" />
+        <div class="p"><h3>Hamburguesas</h3><p>Carne jugosa .</p></div>
+      </article>
+      <article class="card">
+        <img src="/images/pizza-shrimp.jpg" alt="Pizza" />
+        <div class="p"><h3>Pizzas</h3><p>Masas y sabores caseros.</p></div>
+      </article>
+      <article class="card">
+        <img src="/images/restaurant-exterior.jpg" alt="Exterior del local" />
+        <div class="p"><h3>Terraza</h3><p>Ideal para grupos y familias.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</BaseLayout>
+

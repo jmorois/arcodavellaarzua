@@ -1,0 +1,22 @@
+---
+const { title = "Arco da Vella - Arzúa", description = "Café bar en Arzúa. Buen ambiente, raciones y bocados.", ogImage = "/images/restaurant-exterior.jpg" } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <slot name="header" />
+    <main class="container">
+      <slot />
+    </main>
+    <slot name="footer" />
+  </body>
+</html>

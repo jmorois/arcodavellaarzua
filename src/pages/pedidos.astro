@@ -1,0 +1,27 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Header />
+<main>
+  <h1>Personaliza tu Pizza</h1>
+  <form id="pedidoForm" method="POST" action="/enviar-pedido">
+    <label>Nombre: <input type="text" name="nombre" required></label>
+    
+    <fieldset>
+      <legend>Ingredientes Base (Elige 1):</legend>
+      <label><input type="radio" name="base" value="Tomate" checked> Salsa de tomate</label>
+      <label><input type="radio" name="base" value="Crema"> Salsa de crema</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ingredientes Extra (Elige hasta 3):</legend>
+      <label><input type="checkbox" name="ingredientes" value="Queso"> Queso</label>
+      <label><input type="checkbox" name="ingredientes" value="Jamón"> Jamón</label>
+      <label><input type="checkbox" name="ingredientes" value="Champiñones"> Champiñones</label>
+    </fieldset>
+
+    <button type="submit">Enviar Pedido</button>
+  </form>
+</main>
+<Footer />

@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import fs from "node:fs";
+import path from "node:path";
+
+/** Lee /public/galeria y recoge todas las imágenes válidas */
+const galeriaDir = new URL("../../public/galeria/", import.meta.url);
+let archivos: string[] = [];
+try {
+  archivos = fs
+    .readdirSync(galeriaDir)
+    .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+    .sort(); // alfabético
+} catch {
+  archivos = [];
+}
+
+/** Construye los objetos { src, alt } para el grid */
+const fotos = archivos.map((f) => {
+  const nombre = path.parse(f).name
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const alt = nombre ? `Foto: ${nombre}` : "Foto de la galería";
+  return { src: `/galeria/${f}`, alt };
+});
+---
+
+<BaseLayout title="Galería · Arco da Vella">
+  <Fragment slot="header"><Header /></Fragment>
+
+  <section class="container">
+    <h1>Galería</h1>
+    <p>Fotos compartidas por clientes y del local. Si quieres que subamos la tuya, ¡etiquétanos! 😊</p>
+
+    {fotos.length === 0 ? (
+      <div class="card" style="padding:1rem;margin-top:1rem">
+        <p>Aún no hay fotos en la galería. Sube imágenes a <code>/public/galeria/</code> (JPG/PNG/WebP/GIF) y recarga.</p>
+      </div>
+    ) : (
+      <div class="grid-galeria" style="margin-top:1rem">
+        {fotos.map((f) => (
+          <a class="item" href={f.src} target="_blank" rel="noopener">
+            <img loading="lazy" src={f.src} alt={f.alt} />
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</BaseLayout>
+
+<style>
+.grid-galeria{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1rem
+}
+.grid-galeria .item{
+  display:block;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:1rem;
+  overflow:hidden
+}
+.grid-galeria img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block
+}
+@media (min-width: 900px){
+  .grid-galeria img{ height:260px }
+}
+</style>

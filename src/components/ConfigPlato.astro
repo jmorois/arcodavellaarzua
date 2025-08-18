@@ -1,0 +1,81 @@
+---
+/* Medias raciones disponibles y su precio (las mismas que en menu.astro) */
+const medias = [
+  { id:"croq", nombre: "Croquetas", precio: 3.00 },
+  { id:"patas", nombre: "Patatas", precio: 3.20 },
+  { id:"alioli", nombre: "Patatas ali-oli", precio: 3.60 },
+  { id:"salch", nombre: "Salchichas", precio: 2.90 },
+  { id:"emp", nombre: "Empanadillas", precio: 3.00 },
+  { id:"cal", nombre: "Calamares", precio: 3.00 },
+  { id:"albd", nombre: "Albóndigas", precio: 3.20 },
+  { id:"alitas", nombre: "Alitas de pollo", precio: 3.70 },
+  { id:"nug", nombre: "Nuggets de pollo", precio: 3.50 },
+  { id:"mus", nombre: "Muslitos de mar", precio: 3.70 },
+  { id:"rabas", nombre: "Rabas de calamar", precio: 3.70 },
+  { id:"sj", nombre: "San jacobos", precio: 2.90 },
+  { id:"tort", nombre: "Tortilla francesa (2 huevos)", precio: 3.50 },
+  { id:"huevos", nombre: "Huevos (2)", precio: 2.90 },
+  { id:"lomo", nombre: "Lomo", precio: 3.00 },
+  { id:"bacon", nombre: "Bacon", precio: 3.00 },
+];
+
+const ENVASE = 0.50;
+---
+
+<div class="card" style="padding:1rem" id="plato-config">
+  <h3>Configura tu Plato combinado</h3>
+
+  <p style="margin:.25rem 0 .75rem 0;opacity:.9">
+    El precio es la suma de las <strong>medias raciones</strong> elegidas.
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.5rem">
+    {medias.map((m) => (
+      <label style="display:flex;align-items:center;gap:.5rem">
+        <input type="checkbox" class="plato-item" value={m.id} data-nombre={m.nombre} data-precio={m.precio} />
+        {m.nombre} (+{m.precio.toFixed(2)} €)
+      </label>
+    ))}
+  </div>
+
+  <div style="display:flex;gap:1rem;align-items:center;margin-top:1rem">
+    <label style="display:flex;align-items:center;gap:.5rem">
+      <input type="checkbox" id="plato-llevar" />
+      Para llevar (+{ENVASE.toFixed(2)} € envase)
+    </label>
+  </div>
+
+  <p id="plato-resumen" style="margin-top:1rem;opacity:.9"></p>
+  <h3 id="plato-total">Precio total: 0,00 €</h3>
+  <div class="buttons" style="margin-top:.5rem">
+    <button class="btn" id="plato-reset" type="button">Limpiar</button>
+  </div>
+</div>
+
+<script>
+// @ts-nocheck
+const fmt = (n) => n.toFixed(2).replace('.', ',') + ' €';
+const ENVASE = 0.50;
+
+const all = Array.from(document.querySelectorAll('#plato-config .plato-item'));
+const chkLlevar = document.getElementById('plato-llevar');
+const outTotal = document.getElementById('plato-total');
+const outRes = document.getElementById('plato-resumen');
+const btnReset = document.getElementById('plato-reset');
+
+function calc() {
+  const sel = all.filter(x => x.checked).map(x => ({ nombre:x.dataset.nombre, precio:parseFloat(x.dataset.precio) }));
+  const base = sel.reduce((s,x)=>s+x.precio,0);
+  const total = base + (chkLlevar.checked ? ENVASE : 0);
+  outTotal.textContent = 'Precio total: ' + fmt(total);
+  outRes.textContent = sel.length
+    ? 'Incluye: ' + sel.map(s => s.nombre).join(', ') + (chkLlevar.checked ? ' · Para llevar (+0,50 € envase)' : '')
+    : 'Elige al menos 2 medias raciones';
+}
+
+all.forEach(ch => ch.addEventListener('change', calc));
+chkLlevar.addEventListener('change', calc);
+btnReset.addEventListener('click', () => { all.forEach(ch => ch.checked=false); chkLlevar.checked=false; calc(); });
+
+calc();
+</script>

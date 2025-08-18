@@ -1,0 +1,15 @@
+---
+const current = Astro.url.pathname;
+---
+<header>
+  <div class="nav container">
+    <a class="logo" href="/">Arco da Vella</a>
+    <nav class="menu">
+      <a href="/" class={current==="/" ? "active" : ""}>Inicio</a>
+      <a href="/menu" class={current.startsWith("/menu") ? "active" : ""}>Carta</a>
+      <a href="/galeria" class={current.startsWith("/galeria") ? "active" : ""}>Galería</a>
+      <a href="/contacto" class={current.startsWith("/contacto") ? "active" : ""}>Contacto</a>
+      <a class="cta" href="tel:881107150">Llamar</a>
+    </nav>
+  </div>
+</header>

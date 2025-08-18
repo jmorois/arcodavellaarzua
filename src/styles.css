@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.header {
+  background: #6a994e;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header nav a {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.hero {
+  padding: 2rem;
+  background: #f2e8cf;
+  text-align: center;
+}
+
+.section {
+  padding: 2rem;
+}
+
+.footer {
+  background: #6a994e;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

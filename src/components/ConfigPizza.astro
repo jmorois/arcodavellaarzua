@@ -1,0 +1,115 @@
+---
+/* ========= ConfigPizza.astro =========
+   - Masa por defecto: GRUESA
+   - La base incluye: masa (fina o gruesa) + tomate + orégano + queso (3,00 €)
+   - Extras normales: +1,30 €
+   - Gambas: +4,50 €
+   - Extras especiales: "Extra de queso" y "Cuatro quesos" a 3,00 €
+======================================*/
+
+/* Ingredientes extra de pizza */
+const ingredientesPizza = [
+  { id: "extra_queso", nombre: "Extra de queso", precio: 3.0 },
+  { id: "4quesos", nombre: "Cuatro quesos", precio: 3.0 },
+  { id: "jamon", nombre: "Jamón york", precio: 1.3 },
+  { id: "bacon", nombre: "Bacon", precio: 1.3 },
+  { id: "atun", nombre: "Atún", precio: 1.3 },
+  { id: "lomo", nombre: "Lomo", precio: 1.3 },
+  { id: "chorizo_casero", nombre: "Chorizo casero", precio: 1.3 },
+  { id: "chorizo_revilla", nombre: "Chorizo Revilla", precio: 1.3 },
+  { id: "aceitunas", nombre: "Aceitunas", precio: 1.3 },
+  { id: "pina", nombre: "Piña", precio: 1.3 },
+  { id: "gambas", nombre: "Gambas", precio: 4.5 }, /* excepción */
+  { id: "cebolla", nombre: "Cebolla", precio: 1.3 },
+  { id: "tomate_extra", nombre: "Tomate extra", precio: 1.3 },
+  { id: "champi", nombre: "Champiñones", precio: 1.3 },
+  { id: "esparragos", nombre: "Espárragos", precio: 1.3 },
+  { id: "huevo", nombre: "Huevo", precio: 1.3 },
+];
+
+/* Masas y precio base (según carta) */
+const masas = [
+  { id: "fina", nombre: "Masa fina", base: 3.9 },
+  { id: "gruesa", nombre: "Masa gruesa", base: 4.7 },
+];
+
+/* Queso incluido en la base */
+const quesoIncluido = 3.0;
+---
+
+<div class="card" style="padding:1rem" id="pizza-config">
+  <h3>Configura tu Pizza</h3>
+
+  <p style="margin:.25rem 0 .75rem 0;opacity:.9">
+    La base <strong>incluye masa (fina o gruesa), tomate, orégano y queso</strong> (+3,00 €).
+  </p>
+
+  <label for="pizza-masa"><strong>Masa</strong></label><br />
+  <select id="pizza-masa" name="pizza-masa">
+    {masas.map(m => (
+      <!-- Por defecto deja seleccionada la masa gruesa -->
+      <option value={m.id} data-base={m.base} selected={m.id === "gruesa"}>
+        {m.nombre} ({m.base.toFixed(2)} €)
+      </option>
+    ))}
+  </select>
+
+  <h4 style="margin-top:1rem">
+    Ingredientes extra
+    <small> (normales +1,30 € · <b>Extra de queso/Cuatro quesos +3,00 €</b> · Gambas +4,50 €)</small>
+  </h4>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem">
+    {ingredientesPizza.map((ing) => (
+      <label style="display:flex;align-items:center;gap:.5rem">
+        <input type="checkbox" class="pizza-extra" value={ing.id} data-nombre={ing.nombre} data-precio={ing.precio} />
+        {ing.nombre} (+{ing.precio.toFixed(2)} €)
+      </label>
+    ))}
+  </div>
+
+  <p id="pizza-resumen" style="margin-top:1rem;opacity:.9"></p>
+  <h3 id="pizza-total">Precio total: 0,00 €</h3>
+  <div class="buttons" style="margin-top:.5rem">
+    <button class="btn" id="pizza-reset" type="button">Limpiar</button>
+  </div>
+</div>
+
+<script>
+// @ts-nocheck
+const fmt = (n) => n.toFixed(2).replace('.', ',') + ' €';
+
+const elMasa    = document.getElementById('pizza-masa');
+const elExtras  = Array.from(document.querySelectorAll('#pizza-config .pizza-extra'));
+const elTotal   = document.getElementById('pizza-total');
+const elResumen = document.getElementById('pizza-resumen');
+const elReset   = document.getElementById('pizza-reset');
+
+/* Suma fija de queso incluido en la base */
+const quesoIncluido = 3.0;
+
+function calcPizza() {
+  const base = parseFloat(elMasa.selectedOptions[0].dataset.base);
+  const extras = elExtras
+    .filter(x => x.checked)
+    .map(x => ({ nombre: x.dataset.nombre, precio: parseFloat(x.dataset.precio) }));
+
+  const total = base + quesoIncluido + extras.reduce((s, x) => s + x.precio, 0);
+  elTotal.textContent = 'Precio total: ' + fmt(total);
+
+  const masaNombre = elMasa.options[elMasa.selectedIndex].text.split(' (')[0];
+  const extrasTxt = extras.length ? extras.map(e => e.nombre).join(', ') : 'sin ingredientes extra';
+  elResumen.textContent =
+    `Masa: ${masaNombre} · Base: tomate, orégano y queso (+${fmt(quesoIncluido).replace(' €','€')}) · Extras: ${extrasTxt}`;
+}
+
+elMasa.addEventListener('change', calcPizza);
+elExtras.forEach(ch => ch.addEventListener('change', calcPizza));
+elReset.addEventListener('click', () => {
+  elExtras.forEach(ch => ch.checked = false);
+  calcPizza();
+});
+
+/* Inicializa con la opción seleccionada (gruesa) */
+calcPizza();
+</script>

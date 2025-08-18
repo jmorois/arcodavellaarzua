@@ -1,0 +1,45 @@
+---
+---
+<section class="gallery-section section-container">
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="/images/restaurant-exterior.jpg" alt="Fachada del restaurante">
+      <p>
+        En Restaurante Arco da Vella podrá degustar una gran variedad de especialidades y disfrutarlas en un ambiente acogedor y agradable.
+      </p>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/pizza-shrimp.jpg" alt="Pizza de gambas">
+      <p>
+        Ofrecemos la sencillez y el sabor de la comida tradicional sin frivolidades ni adornos innecesarios, pruebe nuestra Gran variedad de raciones, Bocadillos variados, Hamburguesas caseras o nuestro Gran surtido de pizzas.
+      </p>
+    </div>
+    <div class="gallery-item">
+      <img src="/images/burger-drink.jpg" alt="Hamburguesa con bebida">
+      <p>
+        Venga a disfrutar de una propuesta llena de sabor que convencerá a los comensales con los sólidos argumentos que transmiten los platos ricos y sanos. Nuestros principios se basan en ofrecer el mejor servicio para un público exigente.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery-item {
+    text-align: center;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .gallery-item p {
+    margin-top: 1rem;
+  }
+</style>
