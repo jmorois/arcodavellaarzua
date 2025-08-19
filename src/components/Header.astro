@@ -1,15 +1,44 @@
----
-const current = Astro.url.pathname;
----
 <header>
   <div class="nav container">
-    <a class="logo" href="/">Arco da Vella</a>
+    <a href="/" class="logo">Arco da Vella</a>
     <nav class="menu">
-      <a href="/" class={current==="/" ? "active" : ""}>Inicio</a>
-      <a href="/menu" class={current.startsWith("/menu") ? "active" : ""}>Carta</a>
-      <a href="/galeria" class={current.startsWith("/galeria") ? "active" : ""}>Galería</a>
-      <a href="/contacto" class={current.startsWith("/contacto") ? "active" : ""}>Contacto</a>
-      <a class="cta" href="tel:881107150">Llamar</a>
+      <a href="/">Inicio</a>
+      <a href="/menu">Carta</a>
+      <a href="/contacto">Contacto</a>
     </nav>
   </div>
 </header>
+
+<style>
+header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+}
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+.menu a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.menu a:hover {
+  color: #d35400; /* un tono anaranjado para hover */
+}
+</style>

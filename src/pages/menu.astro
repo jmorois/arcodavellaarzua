@@ -139,7 +139,7 @@ const renderNombre = (n: string): NombreInfo => {
     <h1>Carta</h1>
 
     <!-- ===== 1) PIZZAS (arriba) ===== -->
-    <h2>Pizzas</h2>
+    <h2 id="pizzas">Pizzas</h2>
     <p>
       Base: Masa fina (3,90 €) · Masa gruesa (4,70 €) + <strong>queso incluido 3,00 €</strong>.<br/>
       Extras normales: +1,30 € · <strong>Extra de queso</strong> / <strong>Cuatro quesos</strong>: +3,00 € · Gambas: +4,50 €.<br/>
@@ -148,7 +148,7 @@ const renderNombre = (n: string): NombreInfo => {
     <ConfigPizza />
 
     <!-- ===== 2) PANINIS ===== -->
-    <h2>Paninis</h2>
+    <h2 id="paninis">Paninis</h2>
     <p>
       Base: Panini (queso + 1 ingrediente) 5,00 € · Extra normal: +0,80 € · Gambas: +3,50 €.<br/>
       Para llevar: 1 envase cada 2 paninis (0,50 € / envase).
@@ -176,7 +176,7 @@ const renderNombre = (n: string): NombreInfo => {
     </ul>
 
     <!-- ===== 4) HAMBURGUESAS ===== -->
-    <h2>Hamburguesas</h2>
+    <h2 id="hamburguesas">Hamburguesas</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {hamburguesas.map(it => {
         const info = renderNombre(it.nombre);
@@ -258,3 +258,4 @@ const renderNombre = (n: string): NombreInfo => {
 
   <Fragment slot="footer"><Footer /></Fragment>
 </BaseLayout>
+
