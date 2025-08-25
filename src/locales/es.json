@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Inicio", "menu": "Carta", "contact": "Contacto" },
+  "nav": { "home": "Inicio", "menu": "Carta", "gallery": "Galería", "contact": "Contacto" },
   "home": {
     "h2": "Nuestros imprescindibles",
     "cards": {
@@ -203,5 +203,7 @@
     },
     "howToArrive": "Cómo llegar",
     "openInMaps": "📍 Abrir en Google Maps"
-  }
+  },
+  "gallery": { "link": "Ver galería completa →" 
+  } 
 }

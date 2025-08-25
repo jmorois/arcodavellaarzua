@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "menu": "Menu", "contact": "Contact" },
+  "nav": { "home": "Home", "menu": "Menu", "gallery": "Gallery", "contact": "Contact" },
 
   "home": {
     "h2": "Our must-tries",
@@ -225,5 +225,6 @@
     },
     "howToArrive": "How to get here",
     "openInMaps": "📍 Open in Google Maps"
-  }
+  }, 
+  "gallery": { "link": "See full gallery →" }
 }

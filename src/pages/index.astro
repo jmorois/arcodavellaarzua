@@ -56,6 +56,13 @@ const homeDesc  = t(locale, "meta.homeDesc", "Más de 30 años cocinando Racione
         <p>{t(locale, "home.cards.panini.desc", "Recetas para todos los gustos.")}</p>
       </a>
     </div>
+
+    <!-- Enlace directo a la galería -->
+    <p style="margin-top:1.5rem; text-align:right;">
+      <a href={lurl(locale, 'galeria')} style="font-weight:600; text-decoration:underline;">
+        {t(locale, "home.gallery.link", "Ver galería completa →")}
+      </a>
+    </p>
   </section>
 
   <style>
@@ -69,4 +76,7 @@ const homeDesc  = t(locale, "meta.homeDesc", "Más de 30 años cocinando Racione
     display:block;
     background:#fff;
     border-radius:16px;
-    box-shadow:0 2px 10
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+  }
+  </style>
+</BaseLayout>

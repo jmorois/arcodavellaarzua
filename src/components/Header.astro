@@ -1,16 +1,29 @@
 ---
 import { getLocale, t, lurl } from '../lib/i18n';
 import LanguageSwitcher from './LanguageSwitcher.astro';
+
 const locale = getLocale(Astro);
 ---
+
 <header>
   <div class="nav container">
     <a href={lurl(locale, '')} class="logo">Arco da Vella</a>
+
     <nav class="menu">
-      <a href={lurl(locale, '')}>{t(locale, 'nav.home', 'Inicio')}</a>
-      <a href={lurl(locale, 'menu')}>{t(locale, 'nav.menu', 'Carta')}</a>
-      <a href={lurl(locale, 'contacto')}>{t(locale, 'nav.contact', 'Contacto')}</a>
+      <a href={lurl(locale, '')}>
+        {t(locale, 'nav.home', 'Inicio')}
+      </a>
+      <a href={lurl(locale, 'menu')}>
+        {t(locale, 'nav.menu', 'Carta')}
+      </a>
+      <a href={lurl(locale, 'galeria')}>
+        {t(locale, 'nav.gallery', 'Galería')}
+      </a>
+      <a href={lurl(locale, 'contacto')}>
+        {t(locale, 'nav.contact', 'Contacto')}
+      </a>
     </nav>
+
     <LanguageSwitcher />
   </div>
 </header>
@@ -45,6 +58,7 @@ header {
   transition: color 0.2s ease;
 }
 .menu a:hover {
-  color: #d35400; /* un tono anaranjado para hover */
+  color: #d35400; /* tono anaranjado para hover */
 }
 </style>
+

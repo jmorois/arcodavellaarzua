@@ -5,32 +5,57 @@ import Footer from "../components/Footer.astro";
 
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-/** Lee /public/galeria y recoge todas las imágenes válidas */
-const galeriaDir = new URL("../../public/galeria/", import.meta.url);
+/** Ruta robusta a /public/galeria (Windows/macOS/Linux) */
+const galeriaUrl = new URL("../../public/galeria/", import.meta.url);
+const galeriaDir = fileURLToPath(galeriaUrl);
+
+/** Lee nombres de archivo válidos y ordénalos */
 let archivos: string[] = [];
 try {
   archivos = fs
-    .readdirSync(galeriaDir)
-    .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
-    .sort(); // alfabético
+    .readdirSync(galeriaDir, { withFileTypes: true })
+    .filter((d) => d.isFile())
+    .map((d) => d.name)
+    .filter((f) => /\.(jpe?g|png|webp|gif)$/i.test(f))
+    .sort((a, b) => a.localeCompare(b, "es"));
 } catch {
   archivos = [];
 }
 
-/** Construye los objetos { src, alt } para el grid */
+/** Construye { src, alt } */
 const fotos = archivos.map((f) => {
-  const nombre = path.parse(f).name
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  const nombre = path.parse(f).name.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim();
   const alt = nombre ? `Foto: ${nombre}` : "Foto de la galería";
   return { src: `/galeria/${f}`, alt };
 });
+
+/** SEO + JSON-LD */
+const pageTitle = "Galería · Arco da Vella";
+const pageDescription = "Fotos de clientes y del local en Arzúa.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "hasPart": {
+    "@type": "ItemList",
+    "itemListElement": archivos.map((f, i) => ({
+      "@type": "ImageObject",
+      "position": i + 1,
+      "contentUrl": `/galeria/${f}`,
+      "name": f.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ")
+    }))
+  }
+};
 ---
 
-<BaseLayout title="Galería · Arco da Vella">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <Fragment slot="header"><Header /></Fragment>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">{JSON.stringify(schema)}</script>
 
   <section class="container">
     <h1>Galería</h1>
@@ -43,9 +68,12 @@ const fotos = archivos.map((f) => {
     ) : (
       <div class="grid-galeria" style="margin-top:1rem">
         {fotos.map((f) => (
-          <a class="item" href={f.src} target="_blank" rel="noopener">
-            <img loading="lazy" src={f.src} alt={f.alt} />
-          </a>
+          <figure class="item">
+            <a href={f.src} target="_blank" rel="noopener">
+              <img loading="lazy" src={f.src} alt={f.alt} />
+            </a>
+            <figcaption class="sr-only">{f.alt}</figcaption>
+          </figure>
         ))}
       </div>
     )}
@@ -57,7 +85,7 @@ const fotos = archivos.map((f) => {
 <style>
 .grid-galeria{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:1rem
 }
 .grid-galeria .item{
@@ -73,7 +101,7 @@ const fotos = archivos.map((f) => {
   object-fit:cover;
   display:block
 }
-@media (min-width: 900px){
-  .grid-galeria img{ height:260px }
-}
+@media (min-width: 900px){ .grid-galeria img{ height:260px } }
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
+

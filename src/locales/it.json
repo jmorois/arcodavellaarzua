@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Home", "menu": "Menu", "contact": "Contatti" },
+  "nav": { "home": "Home", "menu": "Menu", "gallery": "Galleria", "contact": "Contatti" },
   "home": {
     "h2": "I nostri imperdibili",
     "cards": {
@@ -221,5 +221,6 @@
     },
     "howToArrive": "Comment venir",
     "openInMaps": "📍 Ouvrir dans Google Maps"
-  }
+  },
+  "gallery": { "link": "Vai alla galleria completa →" }
 }

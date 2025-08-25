@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "홈", "menu": "메뉴", "contact": "연락처" },
+  "nav": { "home": "홈", "menu": "메뉴", "gallery": "갤러리", "contact": "연락처" },
   "home": {
     "h2": "추천 메뉴",
     "cards": {
@@ -221,5 +221,6 @@
   },
   "howToArrive": "오시는 길",
   "openInMaps": "📍 Google 지도에서 열기"
-  }
+  },
+  "gallery": { "link": "전체 갤러리 보기 →" }
 }
