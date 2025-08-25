@@ -1,0 +1,229 @@
+{
+  "nav": { "home": "Home", "menu": "Menu", "contact": "Contact" },
+
+  "home": {
+    "h2": "Our must-tries",
+    "cards": {
+      "hamb": { "title": "Burgers", "desc": "Juicy meat." },
+      "pizza": { "title": "Pizzas", "desc": "Homemade dough and flavours." },
+      "panini": { "title": "Paninis", "desc": "Something for everyone." }
+    }
+  },
+
+  "menu": {
+    "h1": "Menu",
+
+    "pizzasHeading": "Pizzas",
+    "pizzasMeta": "Base: Thin dough (3.90 €) · Thick dough (4,70 €) + ",
+    "pizzasMetaStrong": "cheese included 3,00 €",
+    "pizzasNote": "Regular extras: +1,30 € · ",
+    "pizzasNoteStrong1": "Extra cheese",
+    "pizzasNoteStrong2": "Four cheeses",
+    "pizzasNoteTail": ": +3,00 € · Prawns: +4,50 €.",
+    "pizzasTakeAway": "Take away: +0,50 € (box).",
+
+    "paninisHeading": "Paninis",
+    "paninisMeta": "Base: Panini (cheese + 1 ingredient) 5,00 € · Regular extra: +0,80 € · Prawns: +3,50 €.",
+    "paninisTakeAway": "Take away: 1 box per 2 paninis (0,50 € / box).",
+
+    "bocadillosHeading": "Bocadillos (Half / Large)",
+    "bocadillosSubnote": "Extra ingredient +0,60 € (tomato and egg +0,70 €). For bocadillos with burger, each extra patty +1,00 €.",
+
+    "hamburguesasHeading": "Burgers",
+    "sandwichesHeading": "Sandwiches",
+    "ensaladasHeading": "Salads",
+    "racionesHeading": "Plates to share",
+    "mediasHeading": "Half portions",
+    "platosCombinadosHeading": "Combo plates",
+
+    "ingredientesLabel": "Ingredients:",
+
+    "raciones": [
+      { "nombre": "Fries", "precio": "3,70 €" },
+      { "nombre": "Aioli or brava fries", "precio": "4,20 €" },
+      { "nombre": "Croquettes", "precio": "4,10 €" },
+      { "nombre": "Sausages", "precio": "3,90 €" },
+      { "nombre": "Empanadillas", "precio": "4,10 €" },
+      { "nombre": "Calamari", "precio": "4,10 €" },
+      { "nombre": "Meatballs", "precio": "4,50 €" },
+      { "nombre": "Chicken wings", "precio": "6,00 €" },
+      { "nombre": "Chicken nuggets", "precio": "5,00 €" },
+      { "nombre": "Surimi sticks", "precio": "5,60 €" },
+      { "nombre": "Calamari strips", "precio": "5,70 €" },
+      { "nombre": "Zorza with potatoes", "precio": "8,00 €" },
+      { "nombre": "Raxo with potatoes", "precio": "8,00 €" }
+    ],
+
+    "mediasRaciones": [
+      { "nombre": "Croquettes", "precio": "3,00 €" },
+      { "nombre": "Fries", "precio": "3,20 €" },
+      { "nombre": "Aioli fries", "precio": "3,60 €" },
+      { "nombre": "Sausages", "precio": "2,90 €" },
+      { "nombre": "Empanadillas", "precio": "3,00 €" },
+      { "nombre": "Calamari", "precio": "3,00 €" },
+      { "nombre": "Meatballs", "precio": "3,20 €" },
+      { "nombre": "Chicken wings", "precio": "3,70 €" },
+      { "nombre": "Chicken nuggets", "precio": "3,50 €" },
+      { "nombre": "Surimi sticks", "precio": "3,70 €" },
+      { "nombre": "Calamari strips", "precio": "3,70 €" },
+      { "nombre": "San Jacobo", "precio": "2,90 €" },
+      { "nombre": "French omelette (2 eggs)", "precio": "3,50 €" },
+      { "nombre": "Eggs (2)", "precio": "2,90 €" },
+      { "nombre": "Pork loin", "precio": "3,00 €" },
+      { "nombre": "Bacon", "precio": "3,00 €" }
+    ],
+
+    "bocadillos": [
+      { "nombre": "Cooked ham", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Cheese", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Bacon", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "French omelette", "precio": "3,90 € / 4,60 €" },
+      { "nombre": "Pork loin", "precio": "3,60 € / 4,30 €" },
+      { "nombre": "Chorizo", "precio": "3,50 € / 4,50 €" },
+      { "nombre": "Vegetable (lettuce, tomato, onion)", "precio": "4,50 € / 5,60 €" }
+    ],
+
+    "hamburguesas": [
+      { "nombre": "Plain burger", "precio": "3,40 €" },
+      { "nombre": "Cheeseburger", "precio": "3,90 €" },
+      { "nombre": "Simple (ham and cheese)", "precio": "4,20 €" },
+      { "nombre": "Simple with pork loin", "precio": "4,50 €" },
+      { "nombre": "Simple with bacon", "precio": "4,50 €" },
+      { "nombre": "Simple with pork loin and egg", "precio": "5,00 €" },
+      { "nombre": "Simple with pork loin and chorizo", "precio": "5,00 €" },
+      { "nombre": "Complete", "precio": "4,90 €" },
+      { "nombre": "Complete with bacon", "precio": "5,20 €" },
+      { "nombre": "Complete with chorizo", "precio": "5,20 €" },
+      { "nombre": "Complete with egg", "precio": "5,30 €" },
+      { "nombre": "Double simple (ham and cheese)", "precio": "5,00 €" },
+      { "nombre": "Double simple with pork loin", "precio": "5,30 €" },
+      { "nombre": "Double simple with pork loin and egg", "precio": "5,60 €" },
+      { "nombre": "Double complete", "precio": "5,40 €" },
+      { "nombre": "Double complete with egg", "precio": "5,70 €" },
+      { "nombre": "Chicken plain", "precio": "4,00 €" },
+      { "nombre": "Chicken simple (chicken, ham and cheese)", "precio": "4,70 €" },
+      { "nombre": "Chicken complete", "precio": "5,10 €" },
+      { "nombre": "Chicken complete with egg", "precio": "5,40 €" },
+      { "nombre": "Super chicken (complete + pork loin + chorizo)", "precio": "5,70 €" },
+      { "nombre": "Super chicken with egg", "precio": "6,00 €" },
+      { "nombre": "Double simple chicken", "precio": "5,40 €" },
+      { "nombre": "Double complete chicken", "precio": "5,70 €" },
+      { "nombre": "Double complete chicken with egg", "precio": "6,00 €" }
+    ],
+
+    "sandwiches": [
+      { "nombre": "Mixed (cooked ham and cheese)", "precio": "3,40 €" },
+      { "nombre": "Mixed with egg", "precio": "3,80 €" },
+      { "nombre": "Mixed with bacon", "precio": "3,70 €" },
+      { "nombre": "Mixed with pork loin", "precio": "3,70 €" },
+      { "nombre": "Mixed with lettuce and tomato", "precio": "3,90 €" },
+      { "nombre": "Double sandwich", "precio": "3,90 €" },
+      { "nombre": "Vegetable (cheese, lettuce, tomato, mushrooms, corn, onion, asparagus, mayonnaise)", "precio": "5,00 €" },
+      { "nombre": "Vegetable with egg", "precio": "5,30 €" },
+      { "nombre": "Double vegetable", "precio": "6,20 €" },
+      { "nombre": "Double vegetable with egg", "precio": "6,30 €" }
+    ],
+
+    "ensaladas": [
+      { "nombre": "Regular (lettuce, tomato, onion)", "precio": "4,10 €" },
+      { "nombre": "Mixed (lettuce, tomato, onion, cooked ham, cheese, tuna)", "precio": "5,00 €" },
+      { "nombre": "Pasta complete (vegetable pasta, cooked ham, cheese, tuna, corn, egg, lettuce, tomato, asparagus, mayonnaise)", "precio": "5,50 €" },
+      { "nombre": "Complete (mixed + corn + asparagus)", "precio": "6,20 €" },
+      { "nombre": "Large regular", "precio": "5,50 €" },
+      { "nombre": "Large mixed", "precio": "6,00 €" },
+      { "nombre": "Large complete", "precio": "6,20 €" },
+      { "nombre": "Large pasta complete", "precio": "6,00 €" }
+    ],
+
+    "combinadosNotas": [
+      "Choose 2 or more half portions to combine.",
+      "The price of the plate is the sum of the chosen half portions.",
+      "Take away: +0,50 € per box.",
+      "After 00:30 no combo plates are prepared.",
+      "Extra ketchup or mayonnaise sachets: 0,05 €."
+    ]
+  },
+
+  "config": {
+    "common": {
+      "configure": "Build it your way",
+      "base": "Base",
+      "ingredients": "Ingredients",
+      "normalExtra": "Regular extra",
+      "cheeseExtra": "Extra cheese",
+      "fourCheeses": "Four cheeses",
+      "prawns": "Prawns",
+      "includedCheese": "Cheese included",
+      "takeAway": "Take away",
+      "perBox": "per box",
+      "boxes": "Boxes",
+      "total": "Total",
+      "clear": "Clear",
+      "minTwo": "Choose 2 or more options",
+      "thinDough": "Thin dough",
+      "thickDough": "Thick dough",
+      "choose": "Choose your ingredients"
+    },
+
+    "pizza": {
+      "title": "Build your pizza",
+      "desc": "The base includes dough (thin or thick), tomato, oregano and cheese",
+      "extrasTitle": "extra",
+      "noteLine": "regular +1,30 € · Extra cheese/Four cheeses +3,00 € · Prawns +4,50 €"
+    },
+
+    "panini": {
+      "title": "Build your panini",
+      "included": "Included ingredient (1):",
+      "extras": "Extra ingredients (optional)",
+      "includedLabel": "Included",
+      "extrasLabel": "Extras",
+      "noExtras": "no extras"
+    },
+
+    "plato": {
+      "title": "Build your combo plate",
+      "note": "Total is the sum of the selected half portions."
+    },
+
+    "priceTotal": "Total price",
+
+    "ing": {
+      "york": "Cooked ham",
+      "queso": "Cheese",
+      "lomo": "Pork loin",
+      "bacon": "Bacon",
+      "chorizo": "Chorizo",
+      "cebolla": "Onion",
+      "champi": "Mushrooms",
+      "maiz": "Corn",
+      "pimiento": "Pepper",
+      "aceitunas": "Olives",
+      "atun": "Tuna",
+      "pina": "Pineapple",
+      "tomate": "Tomato",
+      "tomateExtra": "Extra tomato",
+      "esparragos": "Asparagus",
+      "huevo": "Egg"
+    }
+  },
+
+  "meta": {
+    "homeTitle": "Arco da Vella · Café Bar in Arzúa",
+    "homeDesc": "Over 30 years serving sharing plates, sandwiches, burgers and a cozy atmosphere in Arzúa."
+  },
+
+  "contact": {
+    "h1": "Contact",
+    "addressLabel": "Address:",
+    "phoneLabel": "Phone:",
+    "hoursH2": "Opening hours",
+    "hours": {
+      "school": "School term (Mon–Fri): 8:30–16:00 and 20:00–close (+22:30)",
+      "outOfSchool": "Out of term (Mon–Fri): 11:30–16:00 and 20:00–close (+23:00)",
+      "weekends": "Weekends & holidays: 20:00–close (+23:00)"
+    },
+    "howToArrive": "How to get here",
+    "openInMaps": "📍 Open in Google Maps"
+  }
+}

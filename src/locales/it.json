@@ -1,0 +1,225 @@
+{
+  "nav": { "home": "Home", "menu": "Menu", "contact": "Contatti" },
+  "home": {
+    "h2": "I nostri imperdibili",
+    "cards": {
+      "hamb": { "title": "Hamburger", "desc": "Carne succosa." },
+      "pizza": { "title": "Pizze", "desc": "Impasti e sapori casalinghi." },
+      "panini": { "title": "Panini", "desc": "Ricette per tutti i gusti." }
+    }
+  },
+  "menu": {
+    "h1": "Menu",
+
+    "pizzasHeading": "Pizze",
+    "pizzasMeta": "Base: Impasto sottile (3,90 €) · Impasto spesso (4,70 €) + ",
+    "pizzasMetaStrong": "formaggio incluso 3,00 €",
+    "pizzasNote": "Extra standard: +1,30 € · ",
+    "pizzasNoteStrong1": "Extra formaggio",
+    "pizzasNoteStrong2": "Quattro formaggi",
+    "pizzasNoteTail": ": +3,00 € · Gamberi: +4,50 €.",
+    "pizzasTakeAway": "Da asporto: +0,50 € (contenitore).",
+
+    "paninisHeading": "Panini",
+    "paninisMeta": "Base: Panino (formaggio + 1 ingrediente) 5,00 € · Extra standard: +0,80 € · Gamberi: +3,50 €.",
+    "paninisTakeAway": "Da asporto: 1 contenitore ogni 2 panini (0,50 € / contenitore).",
+
+    "bocadillosHeading": "Panini (Mezzo / Grande)",
+    "bocadillosSubnote": "Ingrediente extra +0,60 € (pomodoro e uovo +0,70 €). Nei panini con hamburger, ogni hamburger extra +1,00 €.",
+
+    "hamburguesasHeading": "Hamburger",
+    "sandwichesHeading": "Toast / Sandwich",
+    "ensaladasHeading": "Insalate",
+    "racionesHeading": "Porzioni da condividere",
+    "mediasHeading": "Mezze porzioni",
+    "platosCombinadosHeading": "Piatti combinati",
+
+    "ingredientesLabel": "Ingredienti:",
+
+    "raciones": [
+      { "nombre": "Patatine fritte", "precio": "3,70 €" },
+      { "nombre": "Patatine all'aioli o brava", "precio": "4,20 €" },
+      { "nombre": "Crocchette", "precio": "4,10 €" },
+      { "nombre": "Salsicce", "precio": "3,90 €" },
+      { "nombre": "Empanadillas", "precio": "4,10 €" },
+      { "nombre": "Calamari", "precio": "4,10 €" },
+      { "nombre": "Polpette", "precio": "4,50 €" },
+      { "nombre": "Alette di pollo", "precio": "6,00 €" },
+      { "nombre": "Nuggets di pollo", "precio": "5,00 €" },
+      { "nombre": "Bastoncini di surimi", "precio": "5,60 €" },
+      { "nombre": "Anelli di calamaro", "precio": "5,70 €" },
+      { "nombre": "Zorza con patate", "precio": "8,00 €" },
+      { "nombre": "Raxo con patate", "precio": "8,00 €" }
+    ],
+
+    "mediasRaciones": [
+      { "nombre": "Crocchette", "precio": "3,00 €" },
+      { "nombre": "Patatine fritte", "precio": "3,20 €" },
+      { "nombre": "Patatine all'aioli", "precio": "3,60 €" },
+      { "nombre": "Salsicce", "precio": "2,90 €" },
+      { "nombre": "Empanadillas", "precio": "3,00 €" },
+      { "nombre": "Calamari", "precio": "3,00 €" },
+      { "nombre": "Polpette", "precio": "3,20 €" },
+      { "nombre": "Alette di pollo", "precio": "3,70 €" },
+      { "nombre": "Nuggets di pollo", "precio": "3,50 €" },
+      { "nombre": "Bastoncini di surimi", "precio": "3,70 €" },
+      { "nombre": "Anelli di calamaro", "precio": "3,70 €" },
+      { "nombre": "San Jacobo", "precio": "2,90 €" },
+      { "nombre": "Frittata (2 uova)", "precio": "3,50 €" },
+      { "nombre": "Uova (2)", "precio": "2,90 €" },
+      { "nombre": "Lombo di maiale", "precio": "3,00 €" },
+      { "nombre": "Bacon", "precio": "3,00 €" }
+    ],
+
+    "bocadillos": [
+      { "nombre": "Prosciutto cotto", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Formaggio", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Bacon", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Frittata", "precio": "3,90 € / 4,60 €" },
+      { "nombre": "Lombo di maiale", "precio": "3,60 € / 4,30 €" },
+      { "nombre": "Chorizo", "precio": "3,50 € / 4,50 €" },
+      { "nombre": "Vegetale (lattuga, pomodoro, cipolla)", "precio": "4,50 € / 5,60 €" }
+    ],
+
+    "hamburguesas": [
+      { "nombre": "Hamburger semplice", "precio": "3,40 €" },
+      { "nombre": "Cheeseburger", "precio": "3,90 €" },
+      { "nombre": "Semplice (prosciutto e formaggio)", "precio": "4,20 €" },
+      { "nombre": "Semplice con lombo", "precio": "4,50 €" },
+      { "nombre": "Semplice con bacon", "precio": "4,50 €" },
+      { "nombre": "Semplice con lombo e uovo", "precio": "5,00 €" },
+      { "nombre": "Semplice con lombo e chorizo", "precio": "5,00 €" },
+      { "nombre": "Completa", "precio": "4,90 €" },
+      { "nombre": "Completa con bacon", "precio": "5,20 €" },
+      { "nombre": "Completa con chorizo", "precio": "5,20 €" },
+      { "nombre": "Completa con uovo", "precio": "5,30 €" },
+      { "nombre": "Doppia semplice (prosciutto e formaggio)", "precio": "5,00 €" },
+      { "nombre": "Doppia semplice con lombo", "precio": "5,30 €" },
+      { "nombre": "Doppia semplice con lombo e uovo", "precio": "5,60 €" },
+      { "nombre": "Doppia completa", "precio": "5,40 €" },
+      { "nombre": "Doppia completa con uovo", "precio": "5,70 €" },
+      { "nombre": "Pollo semplice", "precio": "4,00 €" },
+      { "nombre": "Pollo semplice (pollo, prosciutto, formaggio)", "precio": "4,70 €" },
+      { "nombre": "Pollo completa", "precio": "5,10 €" },
+      { "nombre": "Pollo completa con uovo", "precio": "5,40 €" },
+      { "nombre": "Super pollo (completa + lombo + chorizo)", "precio": "5,70 €" },
+      { "nombre": "Super pollo con uovo", "precio": "6,00 €" },
+      { "nombre": "Doppia semplice di pollo", "precio": "5,40 €" },
+      { "nombre": "Doppia completa di pollo", "precio": "5,70 €" },
+      { "nombre": "Doppia completa di pollo con uovo", "precio": "6,00 €" }
+    ],
+
+    "sandwiches": [
+      { "nombre": "Toast misto (prosciutto cotto e formaggio)", "precio": "3,40 €" },
+      { "nombre": "Misto con uovo", "precio": "3,80 €" },
+      { "nombre": "Misto con bacon", "precio": "3,70 €" },
+      { "nombre": "Misto con lombo", "precio": "3,70 €" },
+      { "nombre": "Misto con lattuga e pomodoro", "precio": "3,90 €" },
+      { "nombre": "Toast doppio", "precio": "3,90 €" },
+      { "nombre": "Vegetale (formaggio, lattuga, pomodoro, funghi, mais, cipolla, asparago, maionese)", "precio": "5,00 €" },
+      { "nombre": "Vegetale con uovo", "precio": "5,30 €" },
+      { "nombre": "Doppio vegetale", "precio": "6,20 €" },
+      { "nombre": "Doppio vegetale con uovo", "precio": "6,30 €" }
+    ],
+
+    "ensaladas": [
+      { "nombre": "Normale (lattuga, pomodoro, cipolla)", "precio": "4,10 €" },
+      { "nombre": "Mista (lattuga, pomodoro, cipolla, prosciutto, formaggio, tonno)", "precio": "5,00 €" },
+      { "nombre": "Pasta completa (pasta vegetale, prosciutto, formaggio, tonno, mais, uovo, lattuga, pomodoro, asparago, maionese)", "precio": "5,50 €" },
+      { "nombre": "Completa (mista + mais + asparagi)", "precio": "6,20 €" },
+      { "nombre": "Grande normale", "precio": "5,50 €" },
+      { "nombre": "Grande mista", "precio": "6,00 €" },
+      { "nombre": "Grande completa", "precio": "6,20 €" },
+      { "nombre": "Grande pasta completa", "precio": "6,00 €" }
+    ],
+
+    "combinadosNotas": [
+      "Scegli 2 o più mezze porzioni da combinare.",
+      "Il prezzo del piatto è la somma delle mezze porzioni scelte.",
+      "Da asporto: +0,50 € a contenitore.",
+      "Dopo le 00:30 non si preparano piatti combinati.",
+      "Bustine extra di ketchup o maionese: 0,05 €."
+    ]
+  },
+
+  "config": {
+    "common": {
+      "configure": "Personalizzalo a tuo gusto",
+      "base": "Base",
+      "ingredients": "Ingredienti",
+      "normalExtra": "Extra standard",
+      "cheeseExtra": "Extra formaggio",
+      "fourCheeses": "Quattro formaggi",
+      "prawns": "Gamberi",
+      "includedCheese": "Formaggio incluso",
+      "takeAway": "Da asporto",
+      "perBox": "per contenitore",
+      "boxes": "Contenitori",
+      "total": "Totale",
+      "clear": "Pulisci",
+      "minTwo": "Scegli 2 o più opzioni",
+      "thinDough": "Impasto sottile",
+      "thickDough": "Impasto spesso",
+      "choose": "Scegli i tuoi ingredienti"
+    },
+
+    "pizza": {
+      "title": "Personalizza la tua pizza",
+      "desc": "La base include impasto (sottile o spesso), pomodoro, origano e formaggio",
+      "extrasTitle": "extra",
+      "noteLine": "standard +1,30 € · Extra formaggio/Quattro formaggi +3,00 € · Gamberi +4,50 €"
+    },
+
+    "panini": {
+      "title": "Personalizza il tuo panino",
+      "included": "Ingrediente incluso (1):",
+      "extras": "Ingredienti extra (opzionali)",
+      "includedLabel": "Incluso",
+      "extrasLabel": "Extra",
+      "noExtras": "nessun extra"
+    },
+
+    "plato": {
+      "title": "Compone il tuo piatto combinato",
+      "note": "Il totale è la somma delle mezze porzioni selezionate."
+    },
+
+    "priceTotal": "Prezzo totale",
+
+    "ing": {
+      "york": "Prosciutto cotto",
+      "queso": "Formaggio",
+      "lomo": "Lombo di maiale",
+      "bacon": "Bacon",
+      "chorizo": "Chorizo",
+      "cebolla": "Cipolla",
+      "champi": "Funghi",
+      "maiz": "Mais",
+      "pimiento": "Peperone",
+      "aceitunas": "Olive",
+      "atun": "Tonno",
+      "pina": "Ananas",
+      "tomate": "Pomodoro",
+      "tomateExtra": "Pomodoro extra",
+      "esparragos": "Asparagi",
+      "huevo": "Uovo"
+    }
+  },
+  "meta": {
+    "homeTitle": "Arco da Vella · Café Bar à Arzúa",
+    "homeDesc": "Plus de 30 ans à préparer des portions à partager, sandwichs, burgers et une ambiance conviviale à Arzúa."
+  },
+  "contact": {
+    "h1": "Contact",
+    "addressLabel": "Adresse :",
+    "phoneLabel": "Téléphone :",
+    "hoursH2": "Horaires",
+    "hours": {
+      "school": "Période scolaire (lun–ven) : 8h30–16h00 et 20h00–fermeture (+22h30)",
+      "outOfSchool": "Hors période scolaire (lun–ven) : 11h30–16h00 et 20h00–fermeture (+23h00)",
+      "weekends": "Week-ends et jours fériés : 20h00–fermeture (+23h00)"
+    },
+    "howToArrive": "Comment venir",
+    "openInMaps": "📍 Ouvrir dans Google Maps"
+  }
+}

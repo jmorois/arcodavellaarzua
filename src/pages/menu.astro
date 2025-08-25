@@ -7,10 +7,13 @@ import ConfigPizza from "../components/ConfigPizza.astro";
 import ConfigPanini from "../components/ConfigPanini.astro";
 import ConfigPlato from "../components/ConfigPlato.astro";
 
-/* ====== DATOS ====== */
+import { getLocale, t, getAny } from "../lib/i18n";
+const locale = getLocale(Astro);
+
+/* ====== FALLBACK: datos originales en ES ====== */
 
 /* RACIONES (enteras) */
-const raciones = [
+const racionesFallback = [
   { nombre: "Patatas", precio: "3,70 €" },
   { nombre: "Patatas ali-oli o brava", precio: "4,20 €" },
   { nombre: "Croquetas", precio: "4,10 €" },
@@ -27,7 +30,7 @@ const raciones = [
 ];
 
 /* MEDIAS RACIONES */
-const mediasRaciones = [
+const mediasRacionesFallback = [
   { nombre: "Croquetas", precio: "3,00 €" },
   { nombre: "Patatas", precio: "3,20 €" },
   { nombre: "Patatas ali-oli", precio: "3,60 €" },
@@ -47,7 +50,7 @@ const mediasRaciones = [
 ];
 
 /* BOCADILLOS (Medio / Grande) */
-const bocadillos = [
+const bocadillosFallback = [
   { nombre: "Jamón york", precio: "3,40 € / 4,10 €" },
   { nombre: "Queso", precio: "3,40 € / 4,10 €" },
   { nombre: "Bacon", precio: "3,40 € / 4,10 €" },
@@ -58,7 +61,7 @@ const bocadillos = [
 ];
 
 /* HAMBURGUESAS */
-const hamburguesas = [
+const hamburguesasFallback = [
   { nombre: "Hamburguesa sola", precio: "3,40 €" },
   { nombre: "Hamburguesa con queso", precio: "3,90 €" },
   { nombre: "Simple (jamón y queso)", precio: "4,20 €" },
@@ -87,7 +90,7 @@ const hamburguesas = [
 ];
 
 /* SÁNDWICHES */
-const sandwiches = [
+const sandwichesFallback = [
   { nombre: "Mixto (jamón york y queso)", precio: "3,40 €" },
   { nombre: "Mixto con huevo", precio: "3,80 €" },
   { nombre: "Mixto con bacon", precio: "3,70 €" },
@@ -101,7 +104,7 @@ const sandwiches = [
 ];
 
 /* ENSALADAS */
-const ensaladas = [
+const ensaladasFallback = [
   { nombre: "Normal (lechuga, tomate, cebolla)", precio: "4,10 €" },
   { nombre: "Mixta (lechuga, tomate, cebolla, york, queso, atún)", precio: "5,00 €" },
   { nombre: "Completa de pasta (pasta vegetal, york, queso, atún, maíz, huevo, lechuga, tomate, esparrago, mayonesa)", precio: "5,50 €" },
@@ -113,7 +116,7 @@ const ensaladas = [
 ];
 
 /* PLATOS COMBINADOS: notas genéricas */
-const combinadosNotas = [
+const combinadosNotasFallback = [
   "Elige 2 o más medias raciones para combinar.",
   "El precio del plato es la suma de las medias raciones elegidas.",
   "Para llevar: +0,50 € por envase.",
@@ -121,9 +124,18 @@ const combinadosNotas = [
   "Sobres extra de kétchup o mayonesa: 0,05 €.",
 ];
 
+/* ====== i18n: intenta usar listas traducidas; si no, usa fallback ES ====== */
+type Item = { nombre: string; precio: string };
+const raciones: Item[] = getAny(locale, 'menu.raciones') ?? racionesFallback;
+const mediasRaciones: Item[] = getAny(locale, 'menu.mediasRaciones') ?? mediasRacionesFallback;
+const bocadillos: Item[] = getAny(locale, 'menu.bocadillos') ?? bocadillosFallback;
+const hamburguesas: Item[] = getAny(locale, 'menu.hamburguesas') ?? hamburguesasFallback;
+const sandwiches: Item[] = getAny(locale, 'menu.sandwiches') ?? sandwichesFallback;
+const ensaladas: Item[] = getAny(locale, 'menu.ensaladas') ?? ensaladasFallback;
+const combinadosNotas: string[] = getAny(locale, 'menu.combinadosNotas') ?? combinadosNotasFallback;
+
 /* Texto auxiliar: render nombre + comentario (parte entre paréntesis) */
 type NombreInfo = { titulo: string; comentario: string };
-
 const renderNombre = (n: string): NombreInfo => {
   if (!n.includes("(")) return { titulo: n, comentario: "" };
   const [tituloPart, rest] = n.split("(");
@@ -132,33 +144,38 @@ const renderNombre = (n: string): NombreInfo => {
 };
 ---
 
-<BaseLayout title="Carta · Arco da Vella">
+<BaseLayout title="Carta · Arco da Vella" routePath="" >
   <Fragment slot="header"><Header /></Fragment>
 
   <section class="container">
-    <h1>Carta</h1>
+    <h1>{t(locale, 'menu.h1', 'Carta')}</h1>
 
-    <!-- ===== 1) PIZZAS (arriba) ===== -->
-    <h2 id="pizzas">Pizzas</h2>
+    <!-- ===== 1) PIZZAS ===== -->
+    <h2 id="pizzas">{t(locale, 'menu.pizzasHeading', 'Pizzas')}</h2>
     <p>
-      Base: Masa fina (3,90 €) · Masa gruesa (4,70 €) + <strong>queso incluido 3,00 €</strong>.<br/>
-      Extras normales: +1,30 € · <strong>Extra de queso</strong> / <strong>Cuatro quesos</strong>: +3,00 € · Gambas: +4,50 €.<br/>
-      Para llevar: +0,50 € (envase).
+      {t(locale,'menu.pizzasMeta','Base: Masa fina (3,90 €) · Masa gruesa (4,70 €) + ')}
+      <strong>{t(locale,'menu.pizzasMetaStrong','queso incluido 3,00 €')}</strong>.<br/>
+      {t(locale,'menu.pizzasNote','Extras normales: +1,30 € · ')}
+      <strong>{t(locale,'menu.pizzasNoteStrong1','Extra de queso')}</strong>
+      {' / '}
+      <strong>{t(locale,'menu.pizzasNoteStrong2','Cuatro quesos')}</strong>
+      {t(locale,'menu.pizzasNoteTail',': +3,00 € · Gambas: +4,50 €.')}<br/>
+      {t(locale,'menu.pizzasTakeAway','Para llevar: +0,50 € (envase).')}
     </p>
     <ConfigPizza />
 
     <!-- ===== 2) PANINIS ===== -->
-    <h2 id="paninis">Paninis</h2>
+    <h2 id="paninis">{t(locale, 'menu.paninisHeading', 'Paninis')}</h2>
     <p>
-      Base: Panini (queso + 1 ingrediente) 5,00 € · Extra normal: +0,80 € · Gambas: +3,50 €.<br/>
-      Para llevar: 1 envase cada 2 paninis (0,50 € / envase).
+      {t(locale,'menu.paninisMeta','Base: Panini (queso + 1 ingrediente) 5,00 € · Extra normal: +0,80 € · Gambas: +3,50 €.')}<br/>
+      {t(locale,'menu.paninisTakeAway','Para llevar: 1 envase cada 2 paninis (0,50 € / envase).')}
     </p>
     <ConfigPanini />
 
     <!-- ===== 3) BOCADILLOS ===== -->
-    <h2>Bocadillos <small style="opacity:.7">(Medio / Grande)</small></h2>
+    <h2>{t(locale, 'menu.bocadillosHeading', 'Bocadillos (Medio / Grande)')}</h2>
     <p style="margin-top:-.5rem;opacity:.8">
-      Ingrediente extra +0,60 € (tomate y huevo +0,70 €). En bocadillos con hamburguesa, cada hamburguesa extra +1,00 €.
+      {t(locale, 'menu.bocadillosSubnote', 'Ingrediente extra +0,60 € (tomate y huevo +0,70 €). En bocadillos con hamburguesa, cada hamburguesa extra +1,00 €.')}
     </p>
     <ul style="list-style:none;padding:0;margin:0">
       {bocadillos.map(it => {
@@ -169,14 +186,14 @@ const renderNombre = (n: string): NombreInfo => {
               <span><strong>{info.titulo}</strong></span>
               <strong>{it.precio}</strong>
             </div>
-            {info.comentario && <small style="opacity:.75">Ingredientes: {info.comentario}</small>}
+            {info.comentario && <small style="opacity:.75">{t(locale,'menu.ingredientesLabel','Ingredientes:')} {info.comentario}</small>}
           </li>
         );
       })}
     </ul>
 
     <!-- ===== 4) HAMBURGUESAS ===== -->
-    <h2 id="hamburguesas">Hamburguesas</h2>
+    <h2 id="hamburguesas">{t(locale, 'menu.hamburguesasHeading', 'Hamburguesas')}</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {hamburguesas.map(it => {
         const info = renderNombre(it.nombre);
@@ -186,14 +203,14 @@ const renderNombre = (n: string): NombreInfo => {
               <span><strong>{info.titulo}</strong></span>
               <strong>{it.precio}</strong>
             </div>
-            {info.comentario && <small style="opacity:.75">Ingredientes: {info.comentario}</small>}
+            {info.comentario && <small style="opacity:.75">{t(locale,'menu.ingredientesLabel','Ingredientes:')} {info.comentario}</small>}
           </li>
         );
       })}
     </ul>
 
     <!-- ===== 5) SÁNDWICHES ===== -->
-    <h2>Sándwiches</h2>
+    <h2>{t(locale, 'menu.sandwichesHeading', 'Sándwiches')}</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {sandwiches.map(it => {
         const info = renderNombre(it.nombre);
@@ -203,14 +220,14 @@ const renderNombre = (n: string): NombreInfo => {
               <span><strong>{info.titulo}</strong></span>
               <strong>{it.precio}</strong>
             </div>
-            {info.comentario && <small style="opacity:.75">Ingredientes: {info.comentario}</small>}
+            {info.comentario && <small style="opacity:.75">{t(locale,'menu.ingredientesLabel','Ingredientes:')} {info.comentario}</small>}
           </li>
         );
       })}
     </ul>
 
     <!-- ===== 6) ENSALADAS ===== -->
-    <h2>Ensaladas</h2>
+    <h2>{t(locale, 'menu.ensaladasHeading', 'Ensaladas')}</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {ensaladas.map(it => {
         const info = renderNombre(it.nombre);
@@ -220,14 +237,14 @@ const renderNombre = (n: string): NombreInfo => {
               <span><strong>{info.titulo}</strong></span>
               <strong>{it.precio}</strong>
             </div>
-            {info.comentario && <small style="opacity:.75">Ingredientes: {info.comentario}</small>}
+            {info.comentario && <small style="opacity:.75">{t(locale,'menu.ingredientesLabel','Ingredientes:')} {info.comentario}</small>}
           </li>
         );
       })}
     </ul>
 
     <!-- ===== 7) RACIONES ===== -->
-    <h2>Raciones</h2>
+    <h2>{t(locale, 'menu.racionesHeading', 'Raciones')}</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {raciones.map(it => (
         <li class="card" style="display:flex;justify-content:space-between;align-items:center;padding:1rem;margin:.5rem 0">
@@ -237,7 +254,7 @@ const renderNombre = (n: string): NombreInfo => {
     </ul>
 
     <!-- ===== 8) MEDIAS RACIONES ===== -->
-    <h2>Medias raciones</h2>
+    <h2>{t(locale, 'menu.mediasHeading', 'Medias raciones')}</h2>
     <ul style="list-style:none;padding:0;margin:0">
       {mediasRaciones.map(it => (
         <li class="card" style="display:flex;justify-content:space-between;align-items:center;padding:1rem;margin:.5rem 0">
@@ -247,7 +264,7 @@ const renderNombre = (n: string): NombreInfo => {
     </ul>
 
     <!-- ===== 9) PLATOS COMBINADOS ===== -->
-    <h2>Platos combinados</h2>
+    <h2>{t(locale, 'menu.platosCombinadosHeading', 'Platos combinados')}</h2>
     <div class="card" style="padding:1rem;margin-bottom:.5rem">
       <ul style="margin:.25rem 0">
         {combinadosNotas.map(txt => (<li>{txt}</li>))}
@@ -258,4 +275,9 @@ const renderNombre = (n: string): NombreInfo => {
 
   <Fragment slot="footer"><Footer /></Fragment>
 </BaseLayout>
+
+<style>
+/* (tus estilos originales siguen igual) */
+</style>
+
 

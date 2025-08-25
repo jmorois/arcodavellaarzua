@@ -1,0 +1,208 @@
+{
+  "nav": { "home": "Accueil", "menu": "Carte", "contact": "Contact" },
+  "home": {
+    "h2": "Nos incontournables",
+    "cards": {
+      "hamb": { "title": "Burgers", "desc": "Viande juteuse." },
+      "pizza": { "title": "Pizzas", "desc": "Pâtes et saveurs maison." },
+      "panini": { "title": "Paninis", "desc": "Des recettes pour tous les goûts." }
+    }
+  },
+  "menu": {
+    "h1": "Carte",
+    "pizzasHeading": "Pizzas",
+    "pizzasMeta": "Base : pâte fine (3,90 €) · pâte épaisse (4,70 €) + ",
+    "pizzasMetaStrong": "fromage inclus 3,00 €",
+    "pizzasNote": "Suppléments classiques : +1,30 € · ",
+    "pizzasNoteStrong1": "Supplément fromage",
+    "pizzasNoteStrong2": "Quatre fromages",
+    "pizzasNoteTail": " : +3,00 € · Crevettes : +4,50 €.",
+    "pizzasTakeAway": "À emporter : +0,50 € (boîte).",
+    "paninisHeading": "Paninis",
+    "paninisMeta": "Base : Panini (fromage + 1 ingrédient) 5,00 € · Supplément classique : +0,80 € · Crevettes : +3,50 €.",
+    "paninisTakeAway": "À emporter : 1 boîte pour 2 paninis (0,50 € / boîte).",
+    "bocadillosHeading": "Sandwichs (Demi / Grand)",
+    "bocadillosSubnote": "Ingrédient en plus +0,60 € (tomate et œuf +0,70 €). Pour les sandwichs avec burger, chaque steak en plus +1,00 €.",
+    "hamburguesasHeading": "Burgers",
+    "sandwichesHeading": "Sandwichs",
+    "ensaladasHeading": "Salades",
+    "racionesHeading": "Portions à partager",
+    "mediasHeading": "Demi-portions",
+    "platosCombinadosHeading": "Assiettes composées",
+    "ingredientesLabel": "Ingrédients :",
+    "raciones": [
+      { "nombre": "Frites", "precio": "3,70 €" },
+      { "nombre": "Frites à l'aïoli ou bravas", "precio": "4,20 €" },
+      { "nombre": "Croquettes", "precio": "4,10 €" },
+      { "nombre": "Saucisses", "precio": "3,90 €" },
+      { "nombre": "Empanadillas", "precio": "4,10 €" },
+      { "nombre": "Calamars", "precio": "4,10 €" },
+      { "nombre": "Boulettes de viande", "precio": "4,50 €" },
+      { "nombre": "Ailes de poulet", "precio": "6,00 €" },
+      { "nombre": "Nuggets de poulet", "precio": "5,00 €" },
+      { "nombre": "Bâtonnets de surimi", "precio": "5,60 €" },
+      { "nombre": "Lamelles de calamar", "precio": "5,70 €" },
+      { "nombre": "Zorza avec pommes de terre", "precio": "8,00 €" },
+      { "nombre": "Raxo avec pommes de terre", "precio": "8,00 €" }
+    ],
+    "mediasRaciones": [
+      { "nombre": "Croquettes", "precio": "3,00 €" },
+      { "nombre": "Frites", "precio": "3,20 €" },
+      { "nombre": "Frites à l'aïoli", "precio": "3,60 €" },
+      { "nombre": "Saucisses", "precio": "2,90 €" },
+      { "nombre": "Empanadillas", "precio": "3,00 €" },
+      { "nombre": "Calamars", "precio": "3,00 €" },
+      { "nombre": "Boulettes de viande", "precio": "3,20 €" },
+      { "nombre": "Ailes de poulet", "precio": "3,70 €" },
+      { "nombre": "Nuggets de poulet", "precio": "3,50 €" },
+      { "nombre": "Bâtonnets de surimi", "precio": "3,70 €" },
+      { "nombre": "Lamelles de calamar", "precio": "3,70 €" },
+      { "nombre": "San Jacobo", "precio": "2,90 €" },
+      { "nombre": "Omelette (2 œufs)", "precio": "3,50 €" },
+      { "nombre": "Œufs (2)", "precio": "2,90 €" },
+      { "nombre": "Longe de porc", "precio": "3,00 €" },
+      { "nombre": "Bacon", "precio": "3,00 €" }
+    ],
+    "bocadillos": [
+      { "nombre": "Jambon cuit", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Fromage", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Bacon", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Omelette", "precio": "3,90 € / 4,60 €" },
+      { "nombre": "Longe de porc", "precio": "3,60 € / 4,30 €" },
+      { "nombre": "Chorizo", "precio": "3,50 € / 4,50 €" },
+      { "nombre": "Végétarien (laitue, tomate, oignon)", "precio": "4,50 € / 5,60 €" }
+    ],
+    "hamburguesas": [
+      { "nombre": "Burger simple", "precio": "3,40 €" },
+      { "nombre": "Cheeseburger", "precio": "3,90 €" },
+      { "nombre": "Simple (jambon et fromage)", "precio": "4,20 €" },
+      { "nombre": "Simple avec longe de porc", "precio": "4,50 €" },
+      { "nombre": "Simple avec bacon", "precio": "4,50 €" },
+      { "nombre": "Simple avec longe et œuf", "precio": "5,00 €" },
+      { "nombre": "Simple avec longe et chorizo", "precio": "5,00 €" },
+      { "nombre": "Complète", "precio": "4,90 €" },
+      { "nombre": "Complète avec bacon", "precio": "5,20 €" },
+      { "nombre": "Complète avec chorizo", "precio": "5,20 €" },
+      { "nombre": "Complète avec œuf", "precio": "5,30 €" },
+      { "nombre": "Double simple (jambon et fromage)", "precio": "5,00 €" },
+      { "nombre": "Double simple avec longe", "precio": "5,30 €" },
+      { "nombre": "Double simple avec longe et œuf", "precio": "5,60 €" },
+      { "nombre": "Double complète", "precio": "5,40 €" },
+      { "nombre": "Double complète avec œuf", "precio": "5,70 €" },
+      { "nombre": "Poulet simple", "precio": "4,00 €" },
+      { "nombre": "Poulet simple (poulet, jambon, fromage)", "precio": "4,70 €" },
+      { "nombre": "Poulet complète", "precio": "5,10 €" },
+      { "nombre": "Poulet complète avec œuf", "precio": "5,40 €" },
+      { "nombre": "Super poulet (complète + longe + chorizo)", "precio": "5,70 €" },
+      { "nombre": "Super poulet avec œuf", "precio": "6,00 €" },
+      { "nombre": "Double simple de poulet", "precio": "5,40 €" },
+      { "nombre": "Double complète de poulet", "precio": "5,70 €" },
+      { "nombre": "Double complète de poulet avec œuf", "precio": "6,00 €" }
+    ],
+    "sandwiches": [
+      { "nombre": "Mixte (jambon cuit et fromage)", "precio": "3,40 €" },
+      { "nombre": "Mixte avec œuf", "precio": "3,80 €" },
+      { "nombre": "Mixte avec bacon", "precio": "3,70 €" },
+      { "nombre": "Mixte avec longe de porc", "precio": "3,70 €" },
+      { "nombre": "Mixte avec laitue et tomate", "precio": "3,90 €" },
+      { "nombre": "Sandwich double", "precio": "3,90 €" },
+      { "nombre": "Végétarien (fromage, laitue, tomate, champignons, maïs, oignon, asperge, mayonnaise)", "precio": "5,00 €" },
+      { "nombre": "Végétarien avec œuf", "precio": "5,30 €" },
+      { "nombre": "Double végétarien", "precio": "6,20 €" },
+      { "nombre": "Double végétarien avec œuf", "precio": "6,30 €" }
+    ],
+    "ensaladas": [
+      { "nombre": "Simple (laitue, tomate, oignon)", "precio": "4,10 €" },
+      { "nombre": "Mixte (laitue, tomate, oignon, jambon cuit, fromage, thon)", "precio": "5,00 €" },
+      { "nombre": "Pâtes complètes (pâtes végétales, jambon cuit, fromage, thon, maïs, œuf, laitue, tomate, asperge, mayonnaise)", "precio": "5,50 €" },
+      { "nombre": "Complète (mixte + maïs + asperges)", "precio": "6,20 €" },
+      { "nombre": "Grande simple", "precio": "5,50 €" },
+      { "nombre": "Grande mixte", "precio": "6,00 €" },
+      { "nombre": "Grande complète", "precio": "6,20 €" },
+      { "nombre": "Grande pâtes complètes", "precio": "6,00 €" }
+    ],
+    "combinadosNotas": [
+      "Choisissez 2 demi-portions ou plus à combiner.",
+      "Le prix de l'assiette est la somme des demi-portions choisies.",
+      "À emporter : +0,50 € par boîte.",
+      "Après 00h30, pas d'assiettes composées.",
+      "Sachets de ketchup ou mayonnaise supplémentaires : 0,05 €."
+    ]
+  },
+  "config": {
+    "common": {
+      "configure": "Composez à votre goût",
+      "base": "Base",
+      "ingredients": "Ingrédients",
+      "normalExtra": "Supplément classique",
+      "cheeseExtra": "Supplément fromage",
+      "fourCheeses": "Quatre fromages",
+      "prawns": "Crevettes",
+      "includedCheese": "Fromage inclus",
+      "takeAway": "À emporter",
+      "perBox": "par boîte",
+      "boxes": "Boîtes",
+      "total": "Total",
+      "clear": "Effacer",
+      "minTwo": "Choisissez 2 options ou plus",
+      "thinDough": "Pâte fine",
+      "thickDough": "Pâte épaisse",
+      "choose": "Choisissez vos ingrédients"
+    },
+    "pizza": {
+      "title": "Composez votre pizza",
+      "desc": "La base comprend pâte (fine ou épaisse), tomate, origan et fromage",
+      "extrasTitle": "supplément",
+      "noteLine": "classiques +1,30 € · Supplément fromage/Quatre fromages +3,00 € · Crevettes +4,50 €"
+    },
+    "panini": {
+      "title": "Composez votre panini",
+      "included": "Ingrédient inclus (1) :",
+      "extras": "Ingrédients en plus (optionnel)",
+      "includedLabel": "Inclus",
+      "extrasLabel": "Suppléments",
+      "noExtras": "sans suppléments"
+    },
+    "plato": {
+      "title": "Composez votre assiette composée",
+      "note": "Le total correspond à la somme des demi-portions sélectionnées."
+    },
+    "priceTotal": "Prix total",
+    "ing": {
+      "york": "Jambon cuit",
+      "queso": "Fromage",
+      "lomo": "Longe de porc",
+      "bacon": "Bacon",
+      "chorizo": "Chorizo",
+      "cebolla": "Oignon",
+      "champi": "Champignons",
+      "maiz": "Maïs",
+      "pimiento": "Poivron",
+      "aceitunas": "Olives",
+      "atun": "Thon",
+      "pina": "Ananas",
+      "tomate": "Tomate",
+      "tomateExtra": "Tomate en plus",
+      "esparragos": "Asperges",
+      "huevo": "Œuf"
+    }
+  },
+  "meta": {
+    "homeTitle": "Arco da Vella · Café Bar à Arzúa",
+    "homeDesc": "Plus de 30 ans à préparer des portions à partager, sandwichs, burgers et une ambiance conviviale à Arzúa."
+    }
+  ,
+  "contact": {
+    "h1": "Contact",
+    "addressLabel": "Adresse :",
+    "phoneLabel": "Téléphone :",
+    "hoursH2": "Horaires",
+    "hours": {
+      "school": "Période scolaire (lun–ven) : 8h30–16h00 et 20h00–fermeture (+22h30)",
+      "outOfSchool": "Hors période scolaire (lun–ven) : 11h30–16h00 et 20h00–fermeture (+23h00)",
+      "weekends": "Week-ends et jours fériés : 20h00–fermeture (+23h00)"
+    },
+    "howToArrive": "Comment venir",
+    "openInMaps": "📍 Ouvrir dans Google Maps"
+  }
+}

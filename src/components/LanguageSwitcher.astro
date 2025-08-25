@@ -1,0 +1,53 @@
+---
+import { LOCALES, LOCALE_LABEL, lurl, getLocale } from "../lib/i18n";
+
+// Detecta la ruta "interna" actual (sin el prefijo de locale)
+const url = Astro.url;
+const pathname = url?.pathname ?? "/";
+const search = url?.search ?? "";
+const hash = url?.hash ?? "";
+
+const segs = pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+
+// ¿La primera parte es un locale? (respetando mayúsculas reales)
+const isFirstLocale = segs.length > 0 && LOCALES.some(l => l.toLowerCase() === segs[0].toLowerCase());
+
+// Ruta interna actual (por ejemplo: "", "menu", "contacto")
+const currentInnerPath = isFirstLocale ? segs.slice(1).join("/") : segs.join("/");
+
+// Locale actual (normalizado a los canónicos de i18n.ts)
+const current = getLocale(Astro);
+---
+
+<nav class="lang">
+  {LOCALES.map((loc) => (
+    <a
+      href={lurl(loc, currentInnerPath) + search + hash}
+      class:list={{ active: current === loc }}
+      aria-label={`Cambiar a ${LOCALE_LABEL[loc]}`}
+    >
+      {LOCALE_LABEL[loc]}
+    </a>
+  ))}
+</nav>
+
+<style>
+.lang {
+  display:flex; gap:.5rem; align-items:center;
+}
+.lang a {
+  font: inherit;
+  text-decoration:none;
+  padding:.35rem .55rem;
+  border:1px solid #ddd;
+  border-radius:999px;
+  background:#fff;
+  color:#333;
+  line-height:1;
+  transition:transform .15s ease, background .15s ease, border-color .15s ease;
+}
+.lang a:hover { transform:translateY(-1px); background:#f8f8f8; border-color:#ccc; }
+.lang a.active { font-weight:600; border-color:#35654d; }
+</style>
+
+

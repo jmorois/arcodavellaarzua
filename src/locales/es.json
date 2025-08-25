@@ -1,0 +1,207 @@
+{
+  "nav": { "home": "Inicio", "menu": "Carta", "contact": "Contacto" },
+  "home": {
+    "h2": "Nuestros imprescindibles",
+    "cards": {
+      "hamb": { "title": "Hamburguesas", "desc": "Carne jugosa." },
+      "pizza": { "title": "Pizzas", "desc": "Masas y sabores caseros." },
+      "panini": { "title": "Paninis", "desc": "Recetas para todos los gustos." }
+    }
+  },
+  "menu": {
+    "h1": "Carta",
+    "pizzasHeading": "Pizzas",
+    "pizzasMeta": "Base: Masa fina (3,90 €) · Masa gruesa (4,70 €) + ",
+    "pizzasMetaStrong": "queso incluido 3,00 €",
+    "pizzasNote": "Extras normales: +1,30 € · ",
+    "pizzasNoteStrong1": "Extra de queso",
+    "pizzasNoteStrong2": "Cuatro quesos",
+    "pizzasNoteTail": ": +3,00 € · Gambas: +4,50 €.",
+    "pizzasTakeAway": "Para llevar: +0,50 € (envase).",
+    "paninisHeading": "Paninis",
+    "paninisMeta": "Base: Panini (queso + 1 ingrediente) 5,00 € · Extra normal: +0,80 € · Gambas: +3,50 €.",
+    "paninisTakeAway": "Para llevar: 1 envase cada 2 paninis (0,50 € / envase).",
+    "bocadillosHeading": "Bocadillos (Medio / Grande)",
+    "bocadillosSubnote": "Ingrediente extra +0,60 € (tomate y huevo +0,70 €). En bocadillos con hamburguesa, cada hamburguesa extra +1,00 €.",
+    "hamburguesasHeading": "Hamburguesas",
+    "sandwichesHeading": "Sándwiches",
+    "ensaladasHeading": "Ensaladas",
+    "racionesHeading": "Raciones",
+    "mediasHeading": "Medias raciones",
+    "platosCombinadosHeading": "Platos combinados",
+    "ingredientesLabel": "Ingredientes:",
+    "raciones": [
+      { "nombre": "Patatas", "precio": "3,70 €" },
+      { "nombre": "Patatas ali-oli o brava", "precio": "4,20 €" },
+      { "nombre": "Croquetas", "precio": "4,10 €" },
+      { "nombre": "Salchichas", "precio": "3,90 €" },
+      { "nombre": "Empanadillas", "precio": "4,10 €" },
+      { "nombre": "Calamares", "precio": "4,10 €" },
+      { "nombre": "Albóndigas", "precio": "4,50 €" },
+      { "nombre": "Alitas de pollo", "precio": "6,00 €" },
+      { "nombre": "Nuggets de pollo", "precio": "5,00 €" },
+      { "nombre": "Muslitos de mar", "precio": "5,60 €" },
+      { "nombre": "Rabas de calamar", "precio": "5,70 €" },
+      { "nombre": "Zorza con patatas", "precio": "8,00 €" },
+      { "nombre": "Raxo con patatas", "precio": "8,00 €" }
+    ],
+    "mediasRaciones": [
+      { "nombre": "Croquetas", "precio": "3,00 €" },
+      { "nombre": "Patatas", "precio": "3,20 €" },
+      { "nombre": "Patatas ali-oli", "precio": "3,60 €" },
+      { "nombre": "Salchichas", "precio": "2,90 €" },
+      { "nombre": "Empanadillas", "precio": "3,00 €" },
+      { "nombre": "Calamares", "precio": "3,00 €" },
+      { "nombre": "Albóndigas", "precio": "3,20 €" },
+      { "nombre": "Alitas de pollo", "precio": "3,70 €" },
+      { "nombre": "Nuggets de pollo", "precio": "3,50 €" },
+      { "nombre": "Muslitos de mar", "precio": "3,70 €" },
+      { "nombre": "Rabas de calamar", "precio": "3,70 €" },
+      { "nombre": "San jacobos", "precio": "2,90 €" },
+      { "nombre": "Tortilla francesa (2 huevos)", "precio": "3,50 €" },
+      { "nombre": "Huevos (2)", "precio": "2,90 €" },
+      { "nombre": "Lomo", "precio": "3,00 €" },
+      { "nombre": "Bacon", "precio": "3,00 €" }
+    ],
+    "bocadillos": [
+      { "nombre": "Jamón york", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Queso", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Bacon", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "Tortilla francesa", "precio": "3,90 € / 4,60 €" },
+      { "nombre": "Lomo", "precio": "3,60 € / 4,30 €" },
+      { "nombre": "Chorizo", "precio": "3,50 € / 4,50 €" },
+      { "nombre": "Vegetal (lechuga, tomate, cebolla)", "precio": "4,50 € / 5,60 €" }
+    ],
+    "hamburguesas": [
+      { "nombre": "Hamburguesa sola", "precio": "3,40 €" },
+      { "nombre": "Hamburguesa con queso", "precio": "3,90 €" },
+      { "nombre": "Simple (jamón y queso)", "precio": "4,20 €" },
+      { "nombre": "Simple con lomo", "precio": "4,50 €" },
+      { "nombre": "Simple con bacon", "precio": "4,50 €" },
+      { "nombre": "Simple con lomo y huevo", "precio": "5,00 €" },
+      { "nombre": "Simple con lomo y chorizo", "precio": "5,00 €" },
+      { "nombre": "Completa", "precio": "4,90 €" },
+      { "nombre": "Completa con bacon", "precio": "5,20 €" },
+      { "nombre": "Completa con chorizo", "precio": "5,20 €" },
+      { "nombre": "Completa con huevo", "precio": "5,30 €" },
+      { "nombre": "Doble simple (jamón y queso)", "precio": "5,00 €" },
+      { "nombre": "Doble simple con lomo", "precio": "5,30 €" },
+      { "nombre": "Doble simple con lomo y huevo", "precio": "5,60 €" },
+      { "nombre": "Doble completa", "precio": "5,40 €" },
+      { "nombre": "Doble completa con huevo", "precio": "5,70 €" },
+      { "nombre": "Pollo sola", "precio": "4,00 €" },
+      { "nombre": "Pollo simple (pollo, york y queso)", "precio": "4,70 €" },
+      { "nombre": "Pollo completa", "precio": "5,10 €" },
+      { "nombre": "Pollo completa con huevo", "precio": "5,40 €" },
+      { "nombre": "Superpollo (completa + lomo + chorizo)", "precio": "5,70 €" },
+      { "nombre": "Superpollo con huevo", "precio": "6,00 €" },
+      { "nombre": "Doble simple de pollo", "precio": "5,40 €" },
+      { "nombre": "Doble completa de pollo", "precio": "5,70 €" },
+      { "nombre": "Doble completa de pollo con huevo", "precio": "6,00 €" }
+    ],
+    "sandwiches": [
+      { "nombre": "Mixto (jamón york y queso)", "precio": "3,40 €" },
+      { "nombre": "Mixto con huevo", "precio": "3,80 €" },
+      { "nombre": "Mixto con bacon", "precio": "3,70 €" },
+      { "nombre": "Mixto con lomo", "precio": "3,70 €" },
+      { "nombre": "Mixto con lechuga y tomate", "precio": "3,90 €" },
+      { "nombre": "Sándwich doble", "precio": "3,90 €" },
+      { "nombre": "Vegetal (queso, lechuga, tomate, champiñones, maiz, cebolla, espárrago, mayonesa)", "precio": "5,00 €" },
+      { "nombre": "Vegetal con huevo", "precio": "5,30 €" },
+      { "nombre": "Doble vegetal", "precio": "6,20 €" },
+      { "nombre": "Doble vegetal con huevo", "precio": "6,30 €" }
+    ],
+    "ensaladas": [
+      { "nombre": "Normal (lechuga, tomate, cebolla)", "precio": "4,10 €" },
+      { "nombre": "Mixta (lechuga, tomate, cebolla, york, queso, atún)", "precio": "5,00 €" },
+      { "nombre": "Completa de pasta (pasta vegetal, york, queso, atún, maíz, huevo, lechuga, tomate, esparrago, mayonesa)", "precio": "5,50 €" },
+      { "nombre": "Completa (mixta + maíz + espárragos)", "precio": "6,20 €" },
+      { "nombre": "Grande normal", "precio": "5,50 €" },
+      { "nombre": "Grande mixta", "precio": "6,00 €" },
+      { "nombre": "Grande completa", "precio": "6,20 €" },
+      { "nombre": "Grande completa de pasta", "precio": "6,00 €" }
+    ],
+    "combinadosNotas": [
+      "Elige 2 o más medias raciones para combinar.",
+      "El precio del plato es la suma de las medias raciones elegidas.",
+      "Para llevar: +0,50 € por envase.",
+      "A partir de las 00:30 h no se hacen platos combinados.",
+      "Sobres extra de kétchup o mayonesa: 0,05 €."
+    ]
+  },
+  "config": {
+    "common": {
+      "configure": "Configúralo a tu gusto",
+      "base": "Base",
+      "ingredients": "Ingredientes",
+      "normalExtra": "Extra normal",
+      "cheeseExtra": "Extra de queso",
+      "fourCheeses": "Cuatro quesos",
+      "prawns": "Gambas",
+      "includedCheese": "Queso incluido",
+      "takeAway": "Para llevar",
+      "perBox": "por envase",
+      "boxes": "Envases",
+      "total": "Total",
+      "clear": "Limpiar",
+      "minTwo": "Elige 2 o más opciones",
+      "thinDough": "Masa fina",
+      "thickDough": "Masa gruesa",
+      "choose": "Elige tus ingredientes"
+    },
+    "pizza": {
+      "title": "Configura tu pizza",
+      "desc": "La base incluye masa (fina o gruesa), tomate, orégano y queso",
+      "extrasTitle": "extra",
+      "noteLine": "normales +1,30 € · Extra de queso/Cuatro quesos +3,00 € · Gambas +4,50 €"
+    },
+    "panini": {
+      "title": "Configura tu panini",
+      "included": "Ingrediente incluido (1):",
+      "extras": "Ingredientes extra (opcionales)",
+      "includedLabel": "Incluido",
+      "extrasLabel": "Extras",
+      "noExtras": "sin extras"
+    },
+    "plato": {
+      "title": "Configura tu plato combinado",
+      "note": "El total es la suma de las medias raciones elegidas."
+    },
+    "priceTotal": "Precio total",
+    "ing": {
+      "york": "Jamón york",
+      "queso": "Queso",
+      "lomo": "Lomo",
+      "bacon": "Bacon",
+      "chorizo": "Chorizo",
+      "cebolla": "Cebolla",
+      "champi": "Champiñones",
+      "maiz": "Maíz",
+      "pimiento": "Pimiento",
+      "aceitunas": "Aceitunas",
+      "atun": "Atún",
+      "pina": "Piña",
+      "tomate": "Tomate",
+      "tomateExtra": "Tomate extra",
+      "esparragos": "Espárragos",
+      "huevo": "Huevo"
+    }
+  },
+  "meta": {
+    "homeTitle": "Arco da Vella · Café Bar en Arzúa",
+    "homeDesc": "Mas de 30 años cocinando Raciones, bocadillos, hamburguesas y buen ambiente en Arzúa."
+  },
+  "contact": {
+    "h1": "Contacto",
+    "addressLabel": "Dirección:",
+    "phoneLabel": "Teléfono:",
+    "hoursH2": "Horario",
+    "hours": {
+      "school": "Curso escolar (lunes a viernes): 8:30 – 16:00 y 20:00 – cierre (+22:30)",
+      "outOfSchool": "Fuera de curso escolar (lunes a viernes): 11:30 – 16:00 y 20:00 – cierre (+23:00)",
+      "weekends": "Fines de semana y festivos: 20:00 – cierre (+23:00)"
+    },
+    "howToArrive": "Cómo llegar",
+    "openInMaps": "📍 Abrir en Google Maps"
+  }
+}

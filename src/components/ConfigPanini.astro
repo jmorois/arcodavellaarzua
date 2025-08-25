@@ -1,62 +1,106 @@
 ---
+import { getLocale, t, money } from "../lib/i18n";
+const locale = getLocale(Astro);
+
 /* Base: incluye QUESO + 1 ingrediente a elegir */
 const basePanini = 5.00;
 
 /* Extras: 0,80 € (gambas 3,50 €) */
 const ingredientesPanini = [
-  { id: "jamon", nombre: "Jamón york", precio: 0.8 },
-  { id: "bacon", nombre: "Bacon", precio: 0.8 },
-  { id: "atun", nombre: "Atún", precio: 0.8 },
-  { id: "lomo", nombre: "Lomo", precio: 0.8 },
-  { id: "chorizo_casero", nombre: "Chorizo casero", precio: 0.8 },
-  { id: "chorizo_revilla", nombre: "Chorizo Revilla", precio: 0.8 },
-  { id: "aceitunas", nombre: "Aceitunas", precio: 0.8 },
-  { id: "pina", nombre: "Piña", precio: 0.8 },
-  { id: "gambas", nombre: "Gambas", precio: 3.5 }, /* panini */
-  { id: "cebolla", nombre: "Cebolla", precio: 0.8 },
-  { id: "tomate", nombre: "Tomate", precio: 0.8 },
-  { id: "champi", nombre: "Champiñones", precio: 0.8 },
-  { id: "esparragos", nombre: "Espárragos", precio: 0.8 },
-  { id: "huevo", nombre: "Huevo", precio: 0.8 },
-  { id: "queso", nombre: "Queso", precio: 1.00 },   /* extra de queso */
+  { id: "jamon",            nombre: t(locale, "config.ing.york",        "Jamón york"),       precio: 0.8 },
+  { id: "bacon",            nombre: t(locale, "config.ing.bacon",       "Bacon"),            precio: 0.8 },
+  { id: "atun",             nombre: t(locale, "config.ing.atun",        "Atún"),             precio: 0.8 },
+  { id: "lomo",             nombre: t(locale, "config.ing.lomo",        "Lomo"),             precio: 0.8 },
+  { id: "chorizo_casero",   nombre: t(locale, "config.ing.chorizo",     "Chorizo casero"),   precio: 0.8 },
+  { id: "chorizo_revilla",  nombre: t(locale, "config.ing.chorizo",     "Chorizo Revilla"),  precio: 0.8 },
+  { id: "aceitunas",        nombre: t(locale, "config.ing.aceitunas",   "Aceitunas"),        precio: 0.8 },
+  { id: "pina",             nombre: t(locale, "config.ing.pina",        "Piña"),             precio: 0.8 },
+  { id: "gambas",           nombre: t(locale, "config.common.prawns",   "Gambas"),           precio: 3.5 }, /* panini */
+  { id: "cebolla",          nombre: t(locale, "config.ing.cebolla",     "Cebolla"),          precio: 0.8 },
+  { id: "tomate",           nombre: t(locale, "config.ing.tomate",      "Tomate"),           precio: 0.8 },
+  { id: "champi",           nombre: t(locale, "config.ing.champi",      "Champiñones"),      precio: 0.8 },
+  { id: "esparragos",       nombre: t(locale, "config.ing.esparragos",  "Espárragos"),       precio: 0.8 },
+  { id: "huevo",            nombre: t(locale, "config.ing.huevo",       "Huevo"),            precio: 0.8 },
+  { id: "queso",            nombre: t(locale, "config.ing.queso",       "Queso"),            precio: 1.00 }  /* extra de queso */
 ];
 
 /* En el “incluido” no mostramos queso porque ya lo lleva la base */
 const opcionesIncluido = ingredientesPanini.filter(i => i.id !== "queso");
+
+const fmt = (n: number) => money(locale, n, "EUR");
 ---
 
-<div class="card" style="padding:1rem" id="panini-config" data-base={basePanini}>
-  <h3>Configura tu Panini</h3>
-  <p><strong>Base:</strong> Panini (queso + 1 ingrediente) ({basePanini.toFixed(2)} €)</p>
+<div
+  class="card"
+  style="padding:1rem"
+  id="panini-config"
+  data-base={basePanini}
+  data-locale={locale}
+  data-lbl-incluido={t(locale,"config.panini.includedLabel","Incluido")}
+  data-lbl-extras={t(locale,"config.panini.extrasLabel","Extras")}
+  data-lbl-sin-extras={t(locale,"config.panini.noExtras","sin extras")}
+>
+  <h3>{t(locale,"config.panini.title","Configura tu panini")}</h3>
 
-  <label for="panini-incluido"><strong>Ingrediente incluido (1):</strong></label><br />
+  <p>
+    <strong>{t(locale,"config.common.base","Base")}:</strong>
+    Panini ({t(locale,"config.common.includedCheese","Queso incluido")} + 1 {t(locale,"config.common.ingredients","Ingredientes").toLowerCase()})
+    ({fmt(basePanini)})
+  </p>
+
+  <label for="panini-incluido">
+    <strong>{t(locale,"config.panini.included","Ingrediente incluido (1):")}</strong>
+  </label><br />
+
   <select id="panini-incluido" name="panini-incluido">
     {opcionesIncluido.map(op => (<option value={op.id}>{op.nombre}</option>))}
   </select>
 
-  <h4 style="margin-top:1rem">Ingredientes extra (opcionales)</h4>
+  <h4 style="margin-top:1rem">{t(locale,"config.panini.extras","Ingredientes extra (opcionales)")}</h4>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem">
     {ingredientesPanini.map((ing) => (
       <label style="display:flex;align-items:center;gap:.5rem">
-        <input type="checkbox" class="panini-extra" value={ing.id} data-nombre={ing.nombre} data-precio={ing.precio} />
-        {ing.nombre} (+{ing.precio.toFixed(2)} €)
+        <input
+          type="checkbox"
+          class="panini-extra"
+          value={ing.id}
+          data-nombre={ing.nombre}
+          data-precio={ing.precio}
+        />
+        {ing.nombre} (+{fmt(ing.precio)})
       </label>
     ))}
   </div>
 
   <p id="panini-resumen" style="margin-top:1rem;opacity:.9"></p>
-  <h3 id="panini-total">Precio total: 0,00 €</h3>
-  <div class="buttons"><button class="btn" id="panini-reset" type="button">Limpiar</button></div>
+
+  <h3>
+    <span id="panini-total-label">{t(locale,"config.common.total","Total")}</span>:
+    <span id="panini-total-amount">{fmt(basePanini)}</span>
+  </h3>
+
+  <div class="buttons">
+    <button class="btn" id="panini-reset" type="button">
+      {t(locale,"config.common.clear","Limpiar")}
+    </button>
+  </div>
 </div>
 
 <script>
 // @ts-nocheck
-const fmt = (n) => n.toFixed(2).replace('.', ',') + ' €';
 const root = document.getElementById('panini-config');
 const base = parseFloat(root.dataset.base || '0');
+const locale = root.dataset.locale || 'es';
+const lblInc = root.dataset.lblIncluido || 'Incluido';
+const lblExt = root.dataset.lblExtras || 'Extras';
+const lblNoExt = root.dataset.lblSinExtras || 'sin extras';
+
+const nf = new Intl.NumberFormat(locale, { style:'currency', currency:'EUR' });
+const fmt = (n) => nf.format(n);
+
 const selIncluido = document.getElementById('panini-incluido');
 const allExtras = Array.from(document.querySelectorAll('#panini-config .panini-extra'));
-const totalEl = document.getElementById('panini-total');
+const totalAmtEl = document.getElementById('panini-total-amount');
 const resumenEl = document.getElementById('panini-resumen');
 const resetBtn = document.getElementById('panini-reset');
 
@@ -70,18 +114,26 @@ function syncDisable() {
 
 function calcPanini() {
   syncDisable();
-  const extras = allExtras.filter(x => x.checked).map(x => ({ nombre: x.dataset.nombre, precio: parseFloat(x.dataset.precio) }));
+  const extras = allExtras
+    .filter(x => x.checked)
+    .map(x => ({ nombre: x.dataset.nombre, precio: parseFloat(x.dataset.precio) }));
+
   const total = base + extras.reduce((s, x) => s + x.precio, 0);
-  totalEl.textContent = 'Precio total: ' + fmt(total);
-  const listaExtras = extras.length ? extras.map(e => e.nombre).join(', ') : 'sin extras';
+  totalAmtEl.textContent = fmt(total);
+
+  const listaExtras = extras.length ? extras.map(e => e.nombre).join(', ') : lblNoExt;
   const incTxt = selIncluido.options[selIncluido.selectedIndex].text;
-  resumenEl.textContent = `Incluido: ${incTxt} · Extras: ${listaExtras}`;
+  resumenEl.textContent = `${lblInc}: ${incTxt} · ${lblExt}: ${listaExtras}`;
 }
 
 selIncluido.addEventListener('change', calcPanini);
 allExtras.forEach(ch => ch.addEventListener('change', calcPanini));
-resetBtn.addEventListener('click', () => { allExtras.forEach(ch => ch.checked = false); calcPanini(); });
+resetBtn.addEventListener('click', () => {
+  allExtras.forEach(ch => ch.checked = false);
+  calcPanini();
+});
 
 // init
 calcPanini();
 </script>
+

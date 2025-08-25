@@ -1,15 +1,38 @@
 ---
-const { title = "Arco da Vella - Arzúa", description = "Café bar en Arzúa. Buen ambiente, raciones y bocados.", ogImage = "/images/restaurant-exterior.jpg" } = Astro.props;
+import { LOCALES, getLocale, lurlAbs } from '../lib/i18n';
+
+/** Props:
+ *  - title, description, ogImage: igual que antes
+ *  - routePath: '' | 'menu' | 'contacto'  (se usa para canonical/hreflang)
+ */
+const {
+  title = "Arco da Vella - Arzúa",
+  description = "Café bar en Arzúa. Buen ambiente, raciones y bocados.",
+  ogImage = "/images/restaurant-exterior.jpg",
+  routePath = ""
+} = Astro.props;
+
+const locale = getLocale(Astro);
 ---
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Open Graph básico (igual que el original) -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+
+    <!-- Canonical y hreflang por idioma -->
+    <link rel="canonical" href={lurlAbs(locale, routePath)} />
+    {LOCALES.map((l) => (
+      <link rel="alternate" hreflang={l} href={lurlAbs(l, routePath)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={lurlAbs('es', routePath)} />
+
     <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
@@ -20,3 +43,4 @@ const { title = "Arco da Vella - Arzúa", description = "Café bar en Arzúa. Bu
     <slot name="footer" />
   </body>
 </html>
+

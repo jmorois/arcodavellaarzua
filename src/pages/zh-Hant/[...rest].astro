@@ -1,0 +1,5 @@
+---
+/* Redirige /zh-hant/cualquier-cosa → /zh-Hant/cualquier-cosa */
+const rest = (Astro.params.rest ?? '').replace(/^\/+/, '');
+return Astro.redirect(`/zh-Hant/${rest}`, 301);
+---

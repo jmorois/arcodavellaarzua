@@ -2,48 +2,46 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
----
+import { getLocale, t } from "../lib/i18n";
 
-<BaseLayout title="Contacto · Arco da Vella">
+const locale = getLocale(Astro);
+---
+<BaseLayout title={`${t(locale,"contact.h1","Contacto")} · Arco da Vella`}>
   <Fragment slot="header"><Header /></Fragment>
 
   <section class="container">
-    <h1>Contacto</h1>
-    <p><strong>Dirección:</strong> C/ Rio Mera, Arzúa (A Coruña)</p>
-    <p><strong>Teléfono:</strong> 
+    <h1>{t(locale,"contact.h1","Contacto")}</h1>
+
+    <p><strong>{t(locale,"contact.addressLabel","Dirección:")}</strong> C/ Rio Mera, Arzúa (A Coruña)</p>
+
+    <p><strong>{t(locale,"contact.phoneLabel","Teléfono:")}</strong>
       <a href="tel:881107150" style="color:#35654d;text-decoration:none">
         881 107 150
       </a>
     </p>
 
-    <h2>Horario</h2>
+    <h2>{t(locale,"contact.hoursH2","Horario")}</h2>
     <ul style="list-style:none;padding:0;line-height:1.6">
-      <li><strong>Curso escolar (lunes a viernes):</strong> 8:30 – 16:00 y 20:00 – cierre (+22:30)</li>
-      <li><strong>Fuera de curso escolar (lunes a viernes):</strong> 11:30 – 16:00 y 20:00 – cierre (+23:00)</li>
-      <li><strong>Fines de semana y festivos:</strong> 20:00 – cierre (+23:00)</li>
+      <li><strong>{t(locale,"contact.hours.school","Curso escolar (lunes a viernes): 8:30 – 16:00 y 20:00 – cierre (+22:30)")}</strong></li>
+      <li><strong>{t(locale,"contact.hours.outOfSchool","Fuera de curso escolar (lunes a viernes): 11:30 – 16:00 y 20:00 – cierre (+23:00)")}</strong></li>
+      <li><strong>{t(locale,"contact.hours.weekends","Fines de semana y festivos: 20:00 – cierre (+23:00)")}</strong></li>
     </ul>
 
-    <h2>Cómo llegar</h2>
+    <h2>{t(locale,"contact.howToArrive","Cómo llegar")}</h2>
     <div style="width:100%;max-width:800px">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3474.076249965579!2d-8.157201787484231!3d42.92899518536654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e4a670bc26067%3A0x49f35da5116be7f2!2sArco%20da%20Vella!5e0!3m2!1ses!2ses!4v1755522661974!5m2!1ses!2ses" 
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3474.076249965579!2d-8.157201787484231!3d42.92899518536654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2e4a670bc26067%3A0x49f35da5116be7f2!2sArco%20da%20Vella!5e0!3m2!1ses!2ses!4v1755522661974!5m2!1ses!2ses"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </div>
 
     <p style="margin-top:1rem">
       <a href="https://maps.app.goo.gl/NcUrzACoozbqN9B66" target="_blank" class="btn">
-        📍 Abrir en Google Maps
+        {t(locale,"contact.openInMaps","📍 Abrir en Google Maps")}
       </a>
     </p>
   </section>
 
   <Fragment slot="footer"><Footer /></Fragment>
 </BaseLayout>
-
 

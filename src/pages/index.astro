@@ -2,82 +2,71 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+import { getLocale, t, lurl } from "../lib/i18n";
+const locale = getLocale(Astro);
+
+// URLs localizadas a /menu con anclas
+const urlMenu = lurl(locale, 'menu');
+const urlHamb = `${urlMenu}#hamburguesas`;
+const urlPizz = `${urlMenu}#pizzas`;
+const urlPanini = `${urlMenu}#paninis`;
+
+// <title> y <meta> por idioma (fallback ES)
+const homeTitle = t(locale, "meta.homeTitle", "Arco da Vella · Café Bar en Arzúa");
+const homeDesc  = t(locale, "meta.homeDesc", "Más de 30 años cocinando Raciones, bocadillos, hamburguesas y buen ambiente en Arzúa.");
 ---
-<BaseLayout title="Arco da Vella · Café Bar en Arzúa" description="Mas de 30 años cocinando Raciones, bocadillos, hamburguesas y buen ambiente en Arzúa.">
+<BaseLayout title={homeTitle} description={homeDesc} routePath="">
   <Fragment slot="header"><Header /></Fragment>
 
-<section class="container">
-  <h2>Nuestros imprescindibles</h2>
+  <section class="container">
+    <h2>{t(locale, "home.h2", "Nuestros imprescindibles")}</h2>
 
-  <div class="cards">
-    <!-- Hamburguesas -->
-    <a class="card" href="/menu#hamburguesas" aria-label="Ver hamburguesas">
-      <img
-        src="/galeria/doble1.webp"
-        alt="Hamburguesa completa con huevo"
-        loading="lazy"
-      />
-      <h3>Hamburguesas</h3>
-      <p>Carne jugosa.</p>
-    </a>
+    <div class="cards">
+      <!-- Hamburguesas -->
+      <a class="card" href={urlHamb} aria-label={t(locale, "home.cards.hamb.title", "Hamburguesas")}>
+        <img
+          src="/galeria/doble1.webp"
+          alt={t(locale, "home.cards.hamb.title", "Hamburguesas")}
+          loading="lazy"
+        />
+        <h3>{t(locale, "home.cards.hamb.title", "Hamburguesas")}</h3>
+        <p>{t(locale, "home.cards.hamb.desc", "Carne jugosa.")}</p>
+      </a>
 
-    <!-- Pizzas -->
-    <a class="card" href="/menu#pizzas" aria-label="Ver pizzas">
-      <img
-        src="/galeria/pizza1.jpg"
-        alt="Pizza casera"
-        loading="lazy"
-      />
-      <h3>Pizzas</h3>
-      <p>Masas y sabores caseros.</p>
-    </a>
+      <!-- Pizzas -->
+      <a class="card" href={urlPizz} aria-label={t(locale, "home.cards.pizza.title", "Pizzas")}>
+        <img
+          src="/galeria/pizza1.jpg"
+          alt={t(locale, "home.cards.pizza.title", "Pizzas")}
+          loading="lazy"
+        />
+        <h3>{t(locale, "home.cards.pizza.title", "Pizzas")}</h3>
+        <p>{t(locale, "home.cards.pizza.desc", "Masas y sabores caseros.")}</p>
+      </a>
 
-    <!-- Paninis -->
-    <a class="card" href="/menu#paninis" aria-label="Ver paninis">
-      <img
-        src="/galeria/panini-york.webp"
-        alt="Panini de jamón york"
-        loading="lazy"
-      />
-      <h3>Paninis</h3>
-      <p>Recetas para todos los gustos.</p>
-    </a>
-  </div>
-</section>
+      <!-- Paninis -->
+      <a class="card" href={urlPanini} aria-label={t(locale, "home.cards.panini.title", "Paninis")}>
+        <img
+          src="/galeria/panini-york.webp"
+          alt={t(locale, "home.cards.panini.title", "Paninis")}
+          loading="lazy"
+        />
+        <h3>{t(locale, "home.cards.panini.title", "Paninis")}</h3>
+        <p>{t(locale, "home.cards.panini.desc", "Recetas para todos los gustos.")}</p>
+      </a>
+    </div>
+  </section>
 
-<style>
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1rem;
-  margin-top:1rem;
-}
-.card{
-  display:block;
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-  padding:1rem;
-  text-align:center;
-  text-decoration:none;
-  color:inherit;
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-.card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-}
-.card img{
-  width:100%;
-  height:190px;
-  border-radius:10px;
-  object-fit:cover;
-  margin-bottom:.6rem;
-}
-.card h3{ margin:.2rem 0 .2rem 0; font-size:1.1rem }
-.card p{ margin:0; opacity:.85 }
-</style>
-
-  <Fragment slot="footer"><Footer /></Fragment>
-</BaseLayout>
-
+  <style>
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:1rem;
+    margin-top:1rem;
+  }
+  .card{
+    display:block;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 2px 10

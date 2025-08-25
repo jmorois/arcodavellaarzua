@@ -1,0 +1,225 @@
+{
+  "nav": { "home": "홈", "menu": "메뉴", "contact": "연락처" },
+  "home": {
+    "h2": "추천 메뉴",
+    "cards": {
+      "hamb": { "title": "햄버거", "desc": "육즙 가득한 패티." },
+      "pizza": { "title": "피자", "desc": "수제 도우와 집밥 같은 맛." },
+      "panini": { "title": "파니니", "desc": "취향대로 즐기는 레시피." }
+    }
+  },
+  "menu": {
+    "h1": "메뉴",
+
+    "pizzasHeading": "피자",
+    "pizzasMeta": "베이스: 얇은 도우(3,90 €) · 두꺼운 도우(4,70 €) + ",
+    "pizzasMetaStrong": "치즈 포함 3,00 €",
+    "pizzasNote": "기본 추가 토핑: +1,30 € · ",
+    "pizzasNoteStrong1": "치즈 추가",
+    "pizzasNoteStrong2": "포 치즈",
+    "pizzasNoteTail": ": +3,00 € · 새우: +4,50 €.",
+    "pizzasTakeAway": "포장: +0,50 € (용기).",
+
+    "paninisHeading": "파니니",
+    "paninisMeta": "베이스: 파니니(치즈 + 1가지 재료) 5,00 € · 기본 추가: +0,80 € · 새우: +3,50 €.",
+    "paninisTakeAway": "포장: 파니니 2개당 용기 1개(0,50 € / 용기).",
+
+    "bocadillosHeading": "보카디요 (하프 / 라지)",
+    "bocadillosSubnote": "추가 재료 +0,60 € (토마토·계란 +0,70 €). 햄버거 포함 보카디요는 패티 추가 1개당 +1,00 €.",
+
+    "hamburguesasHeading": "버거",
+    "sandwichesHeading": "샌드위치",
+    "ensaladasHeading": "샐러드",
+    "racionesHeading": "사이드 플레이트",
+    "mediasHeading": "하프 포션",
+    "platosCombinadosHeading": "콤보 플레이트",
+
+    "ingredientesLabel": "재료:",
+
+    "raciones": [
+      { "nombre": "감자튀김", "precio": "3,70 €" },
+      { "nombre": "알리올리/브라바 감자", "precio": "4,20 €" },
+      { "nombre": "크로켓", "precio": "4,10 €" },
+      { "nombre": "소시지", "precio": "3,90 €" },
+      { "nombre": "엠파나다", "precio": "4,10 €" },
+      { "nombre": "칼라마리", "precio": "4,10 €" },
+      { "nombre": "미트볼", "precio": "4,50 €" },
+      { "nombre": "치킨 윙", "precio": "6,00 €" },
+      { "nombre": "치킨 너겟", "precio": "5,00 €" },
+      { "nombre": "맛살 스틱", "precio": "5,60 €" },
+      { "nombre": "칼라마리 스트립", "precio": "5,70 €" },
+      { "nombre": "소르사 + 감자", "precio": "8,00 €" },
+      { "nombre": "라호 + 감자", "precio": "8,00 €" }
+    ],
+
+    "mediasRaciones": [
+      { "nombre": "크로켓", "precio": "3,00 €" },
+      { "nombre": "감자튀김", "precio": "3,20 €" },
+      { "nombre": "알리올리 감자", "precio": "3,60 €" },
+      { "nombre": "소시지", "precio": "2,90 €" },
+      { "nombre": "엠파나다", "precio": "3,00 €" },
+      { "nombre": "칼라마리", "precio": "3,00 €" },
+      { "nombre": "미트볼", "precio": "3,20 €" },
+      { "nombre": "치킨 윙", "precio": "3,70 €" },
+      { "nombre": "치킨 너겟", "precio": "3,50 €" },
+      { "nombre": "맛살 스틱", "precio": "3,70 €" },
+      { "nombre": "칼라마리 스트립", "precio": "3,70 €" },
+      { "nombre": "산 하코보", "precio": "2,90 €" },
+      { "nombre": "프렌치 오믈렛 (계란 2개)", "precio": "3,50 €" },
+      { "nombre": "계란 (2)", "precio": "2,90 €" },
+      { "nombre": "돼지 등심", "precio": "3,00 €" },
+      { "nombre": "베이컨", "precio": "3,00 €" }
+    ],
+
+    "bocadillos": [
+      { "nombre": "햄", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "치즈", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "베이컨", "precio": "3,40 € / 4,10 €" },
+      { "nombre": "프렌치 오믈렛", "precio": "3,90 € / 4,60 €" },
+      { "nombre": "돼지 등심", "precio": "3,60 € / 4,30 €" },
+      { "nombre": "초리소", "precio": "3,50 € / 4,50 €" },
+      { "nombre": "베지터블 (양상추, 토마토, 양파)", "precio": "4,50 € / 5,60 €" }
+    ],
+
+    "hamburguesas": [
+      { "nombre": "플레인 버거", "precio": "3,40 €" },
+      { "nombre": "치즈버거", "precio": "3,90 €" },
+      { "nombre": "심플 (햄·치즈)", "precio": "4,20 €" },
+      { "nombre": "심플 + 등심", "precio": "4,50 €" },
+      { "nombre": "심플 + 베이컨", "precio": "4,50 €" },
+      { "nombre": "심플 + 등심 + 계란", "precio": "5,00 €" },
+      { "nombre": "심플 + 등심 + 초리소", "precio": "5,00 €" },
+      { "nombre": "콤플리트", "precio": "4,90 €" },
+      { "nombre": "콤플리트 + 베이컨", "precio": "5,20 €" },
+      { "nombre": "콤플리트 + 초리소", "precio": "5,20 €" },
+      { "nombre": "콤플리트 + 계란", "precio": "5,30 €" },
+      { "nombre": "더블 심플 (햄·치즈)", "precio": "5,00 €" },
+      { "nombre": "더블 심플 + 등심", "precio": "5,30 €" },
+      { "nombre": "더블 심플 + 등심 + 계란", "precio": "5,60 €" },
+      { "nombre": "더블 콤플리트", "precio": "5,40 €" },
+      { "nombre": "더블 콤플리트 + 계란", "precio": "5,70 €" },
+      { "nombre": "치킨 플레인", "precio": "4,00 €" },
+      { "nombre": "치킨 심플 (치킨·햄·치즈)", "precio": "4,70 €" },
+      { "nombre": "치킨 콤플리트", "precio": "5,10 €" },
+      { "nombre": "치킨 콤플리트 + 계란", "precio": "5,40 €" },
+      { "nombre": "슈퍼 치킨 (콤플리트 + 등심 + 초리소)", "precio": "5,70 €" },
+      { "nombre": "슈퍼 치킨 + 계란", "precio": "6,00 €" },
+      { "nombre": "더블 심플 치킨", "precio": "5,40 €" },
+      { "nombre": "더블 콤플리트 치킨", "precio": "5,70 €" },
+      { "nombre": "더블 콤플리트 치킨 + 계란", "precio": "6,00 €" }
+    ],
+
+    "sandwiches": [
+      { "nombre": "믹스(햄·치즈)", "precio": "3,40 €" },
+      { "nombre": "믹스 + 계란", "precio": "3,80 €" },
+      { "nombre": "믹스 + 베이컨", "precio": "3,70 €" },
+      { "nombre": "믹스 + 등심", "precio": "3,70 €" },
+      { "nombre": "믹스 + 양상추·토마토", "precio": "3,90 €" },
+      { "nombre": "더블 샌드위치", "precio": "3,90 €" },
+      { "nombre": "베지터블(치즈, 양상추, 토마토, 버섯, 옥수수, 양파, 아스파라거스, 마요네즈)", "precio": "5,00 €" },
+      { "nombre": "베지터블 + 계란", "precio": "5,30 €" },
+      { "nombre": "더블 베지터블", "precio": "6,20 €" },
+      { "nombre": "더블 베지터블 + 계란", "precio": "6,30 €" }
+    ],
+
+    "ensaladas": [
+      { "nombre": "기본(양상추, 토마토, 양파)", "precio": "4,10 €" },
+      { "nombre": "믹스(양상추, 토마토, 양파, 햄, 치즈, 참치)", "precio": "5,00 €" },
+      { "nombre": "파스타 콤플리트(야채파스타, 햄, 치즈, 참치, 옥수수, 계란, 양상추, 토마토, 아스파라거스, 마요네즈)", "precio": "5,50 €" },
+      { "nombre": "콤플리트(믹스 + 옥수수 + 아스파라거스)", "precio": "6,20 €" },
+      { "nombre": "라지 기본", "precio": "5,50 €" },
+      { "nombre": "라지 믹스", "precio": "6,00 €" },
+      { "nombre": "라지 콤플리트", "precio": "6,20 €" },
+      { "nombre": "라지 파스타 콤플리트", "precio": "6,00 €" }
+    ],
+
+    "combinadosNotas": [
+      "하프 포션 2가지 이상을 선택해 조합하세요.",
+      "가격은 선택한 하프 포션의 합계입니다.",
+      "포장: 용기당 +0,50 €.",
+      "00:30 이후에는 콤보 플레이트를 준비하지 않습니다.",
+      "케첩·마요네즈 추가 소스: 0,05 €."
+    ]
+  },
+
+  "config": {
+    "common": {
+      "configure": "취향대로 구성하기",
+      "base": "베이스",
+      "ingredients": "재료",
+      "normalExtra": "기본 추가",
+      "cheeseExtra": "치즈 추가",
+      "fourCheeses": "포 치즈",
+      "prawns": "새우",
+      "includedCheese": "치즈 포함",
+      "takeAway": "포장",
+      "perBox": "용기당",
+      "boxes": "용기",
+      "total": "총 금액",
+      "clear": "초기화",
+      "minTwo": "2가지 이상 옵션을 선택하세요",
+      "thinDough": "얇은 도우",
+      "thickDough": "두꺼운 도우",
+      "choose": "재료를 선택하세요"
+    },
+
+    "pizza": {
+      "title": "피자 구성하기",
+      "desc": "베이스에 도우(얇은/두꺼운), 토마토, 오레가노, 치즈가 포함됩니다",
+      "extrasTitle": "추가",
+      "noteLine": "기본 추가 +1,30 € · 치즈 추가/포 치즈 +3,00 € · 새우 +4,50 €"
+    },
+
+    "panini": {
+      "title": "파니니 구성하기",
+      "included": "포함 재료 (1개):",
+      "extras": "추가 재료(선택)",
+      "includedLabel": "포함",
+      "extrasLabel": "추가",
+      "noExtras": "추가 없음"
+    },
+
+    "plato": {
+      "title": "콤보 플레이트 구성하기",
+      "note": "합계는 선택한 하프 포션의 합입니다."
+    },
+
+    "priceTotal": "총 금액",
+
+    "ing": {
+      "york": "햄",
+      "queso": "치즈",
+      "lomo": "돼지 등심",
+      "bacon": "베이컨",
+      "chorizo": "초리소",
+      "cebolla": "양파",
+      "champi": "버섯",
+      "maiz": "옥수수",
+      "pimiento": "피망",
+      "aceitunas": "올리브",
+      "atun": "참치",
+      "pina": "파인애플",
+      "tomate": "토마토",
+      "tomateExtra": "토마토 추가",
+      "esparragos": "아스파라거스",
+      "huevo": "계란"
+    }
+  },
+  "meta": {
+  "homeTitle": "Arco da Vella · Arzúa 咖啡酒吧",
+  "homeDesc": "在 Arzúa 經營逾 30 年，提供分享拼盤、三明治、漢堡與輕鬆氛圍。"
+},
+"contact": {
+  "h1": "聯絡方式",
+  "addressLabel": "地址：",
+  "phoneLabel": "電話：",
+  "hoursH2": "營業時間",
+  "hours": {
+    "school": "學期期間（週一至週五）：8:30–16:00、20:00–打烊（+22:30）",
+    "outOfSchool": "非學期（週一至週五）：11:30–16:00、20:00–打烊（+23:00）",
+    "weekends": "週末與例假日：20:00–打烊（+23:00）"
+  },
+  "howToArrive": "如何前往",
+  "openInMaps": "📍 在 Google 地圖開啟"
+  }
+}

@@ -1,4 +1,7 @@
 ---
+import { getLocale, t, money } from "../lib/i18n";
+const locale = getLocale(Astro);
+
 /* ========= ConfigPizza.astro =========
    - Masa por defecto: GRUESA
    - La base incluye: masa (fina o gruesa) + tomate + orégano + queso (3,00 €)
@@ -9,75 +12,91 @@
 
 /* Ingredientes extra de pizza */
 const ingredientesPizza = [
-  { id: "extra_queso", nombre: "Extra de queso", precio: 3.0 },
-  { id: "4quesos", nombre: "Cuatro quesos", precio: 3.0 },
-  { id: "jamon", nombre: "Jamón york", precio: 1.3 },
-  { id: "bacon", nombre: "Bacon", precio: 1.3 },
-  { id: "atun", nombre: "Atún", precio: 1.3 },
-  { id: "lomo", nombre: "Lomo", precio: 1.3 },
-  { id: "chorizo_casero", nombre: "Chorizo casero", precio: 1.3 },
-  { id: "chorizo_revilla", nombre: "Chorizo Revilla", precio: 1.3 },
-  { id: "aceitunas", nombre: "Aceitunas", precio: 1.3 },
-  { id: "pina", nombre: "Piña", precio: 1.3 },
-  { id: "gambas", nombre: "Gambas", precio: 4.5 }, /* excepción */
-  { id: "cebolla", nombre: "Cebolla", precio: 1.3 },
-  { id: "tomate_extra", nombre: "Tomate extra", precio: 1.3 },
-  { id: "champi", nombre: "Champiñones", precio: 1.3 },
-  { id: "esparragos", nombre: "Espárragos", precio: 1.3 },
-  { id: "huevo", nombre: "Huevo", precio: 1.3 },
+  { id: "extra_queso",     nombre: t(locale,"config.common.cheeseExtra","Extra de queso"), precio: 3.0 },
+  { id: "4quesos",         nombre: t(locale,"config.common.fourCheeses","Cuatro quesos"),  precio: 3.0 },
+  { id: "jamon",           nombre: t(locale,"config.ing.york","Jamón york"),               precio: 1.3 },
+  { id: "bacon",           nombre: t(locale,"config.ing.bacon","Bacon"),                   precio: 1.3 },
+  { id: "atun",            nombre: t(locale,"config.ing.atun","Atún"),                     precio: 1.3 },
+  { id: "lomo",            nombre: t(locale,"config.ing.lomo","Lomo"),                     precio: 1.3 },
+  { id: "chorizo_casero",  nombre: t(locale,"config.ing.chorizo","Chorizo casero"),        precio: 1.3 },
+  { id: "chorizo_revilla", nombre: t(locale,"config.ing.chorizo","Chorizo Revilla"),       precio: 1.3 },
+  { id: "aceitunas",       nombre: t(locale,"config.ing.aceitunas","Aceitunas"),           precio: 1.3 },
+  { id: "pina",            nombre: t(locale,"config.ing.pina","Piña"),                     precio: 1.3 },
+  { id: "gambas",          nombre: t(locale,"config.common.prawns","Gambas"),              precio: 4.5 }, /* excepción */
+  { id: "cebolla",         nombre: t(locale,"config.ing.cebolla","Cebolla"),               precio: 1.3 },
+  { id: "tomate_extra",    nombre: t(locale,"config.ing.tomateExtra","Tomate extra"),      precio: 1.3 },
+  { id: "champi",          nombre: t(locale,"config.ing.champi","Champiñones"),            precio: 1.3 },
+  { id: "esparragos",      nombre: t(locale,"config.ing.esparragos","Espárragos"),         precio: 1.3 },
+  { id: "huevo",           nombre: t(locale,"config.ing.huevo","Huevo"),                   precio: 1.3 },
 ];
 
 /* Masas y precio base (según carta) */
 const masas = [
-  { id: "fina", nombre: "Masa fina", base: 3.9 },
-  { id: "gruesa", nombre: "Masa gruesa", base: 4.7 },
+  { id: "fina",   nombre: t(locale,"config.common.thinDough","Masa fina"),   base: 3.9 },
+  { id: "gruesa", nombre: t(locale,"config.common.thickDough","Masa gruesa"), base: 4.7 },
 ];
 
 /* Queso incluido en la base */
 const quesoIncluido = 3.0;
+
+// helper para mostrar precios en SSR (textos estáticos en etiquetas)
+const fmt = (n: number) => money(locale, n, "EUR");
 ---
 
-<div class="card" style="padding:1rem" id="pizza-config">
-  <h3>Configura tu Pizza</h3>
+<div class="card" style="padding:1rem" id="pizza-config" data-locale={locale}>
+  <h3>{t(locale,"config.pizza.title","Configura tu pizza")}</h3>
 
   <p style="margin:.25rem 0 .75rem 0;opacity:.9">
-    La base <strong>incluye masa (fina o gruesa), tomate, orégano y queso</strong> (+3,00 €).
+    {t(
+      locale,
+      "config.pizza.desc",
+      "La base incluye masa (fina o gruesa), tomate, orégano y queso"
+    )} (+{fmt(quesoIncluido)}).
   </p>
 
-  <label for="pizza-masa"><strong>Masa</strong></label><br />
+  <label for="pizza-masa"><strong>{t(locale,"config.common.base","Base")}</strong></label><br />
   <select id="pizza-masa" name="pizza-masa">
     {masas.map(m => (
       <!-- Por defecto deja seleccionada la masa gruesa -->
       <option value={m.id} data-base={m.base} selected={m.id === "gruesa"}>
-        {m.nombre} ({m.base.toFixed(2)} €)
+        {m.nombre} ({fmt(m.base)})
       </option>
     ))}
   </select>
 
   <h4 style="margin-top:1rem">
-    Ingredientes extra
-    <small> (normales +1,30 € · <b>Extra de queso/Cuatro quesos +3,00 €</b> · Gambas +4,50 €)</small>
+    {t(locale,"config.common.ingredients","Ingredientes")} {t(locale,"config.pizza.extrasTitle","extra")}
+    <small>
+      ({t(locale,"config.pizza.noteLine",
+        "normales +1,30 € · Extra de queso/Cuatro quesos +3,00 € · Gambas +4,50 €"
+      )})
+    </small>
   </h4>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.5rem">
     {ingredientesPizza.map((ing) => (
       <label style="display:flex;align-items:center;gap:.5rem">
         <input type="checkbox" class="pizza-extra" value={ing.id} data-nombre={ing.nombre} data-precio={ing.precio} />
-        {ing.nombre} (+{ing.precio.toFixed(2)} €)
+        {ing.nombre} (+{fmt(ing.precio)})
       </label>
     ))}
   </div>
 
   <p id="pizza-resumen" style="margin-top:1rem;opacity:.9"></p>
-  <h3 id="pizza-total">Precio total: 0,00 €</h3>
+  <h3 id="pizza-total">
+    {t(locale,"config.priceTotal","Precio total")}: {fmt(0)}
+  </h3>
   <div class="buttons" style="margin-top:.5rem">
-    <button class="btn" id="pizza-reset" type="button">Limpiar</button>
+    <button class="btn" id="pizza-reset" type="button">{t(locale,"config.common.clear","Limpiar")}</button>
   </div>
 </div>
 
 <script>
 // @ts-nocheck
-const fmt = (n) => n.toFixed(2).replace('.', ',') + ' €';
+const root      = document.getElementById('pizza-config');
+const locale    = root?.dataset?.locale || 'es';
+const nf        = new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' });
+const fmt       = (n) => nf.format(n);
 
 const elMasa    = document.getElementById('pizza-masa');
 const elExtras  = Array.from(document.querySelectorAll('#pizza-config .pizza-extra'));
@@ -95,12 +114,24 @@ function calcPizza() {
     .map(x => ({ nombre: x.dataset.nombre, precio: parseFloat(x.dataset.precio) }));
 
   const total = base + quesoIncluido + extras.reduce((s, x) => s + x.precio, 0);
-  elTotal.textContent = 'Precio total: ' + fmt(total);
+  elTotal.textContent = `${elTotal.textContent.split(':')[0]}: ${fmt(total)}`;
 
   const masaNombre = elMasa.options[elMasa.selectedIndex].text.split(' (')[0];
-  const extrasTxt = extras.length ? extras.map(e => e.nombre).join(', ') : 'sin ingredientes extra';
+  const extrasTxt = extras.length ? extras.map(e => e.nombre).join(', ') :
+    (root.getAttribute('data-t-noextras') || 'sin ingredientes extra');
   elResumen.textContent =
-    `Masa: ${masaNombre} · Base: tomate, orégano y queso (+${fmt(quesoIncluido).replace(' €','€')}) · Extras: ${extrasTxt}`;
+    `${tLabel('Masa')}: ${masaNombre} · ${tLabel('Base')}: ${tLabel('tomate, orégano y queso')} (+${fmt(quesoIncluido)}) · ${tLabel('Extras')}: ${extrasTxt}`;
+}
+
+/* pequeñas etiquetas con fallback en ES */
+function tLabel(k){
+  const dict = {
+    'Masa': root.getAttribute('data-t-masa') || 'Masa',
+    'Base': root.getAttribute('data-t-base') || 'Base',
+    'Extras': root.getAttribute('data-t-extras') || 'Extras',
+    'tomate, orégano y queso': root.getAttribute('data-t-baseing') || 'tomate, orégano y queso'
+  };
+  return dict[k] || k;
 }
 
 elMasa.addEventListener('change', calcPizza);
@@ -113,3 +144,5 @@ elReset.addEventListener('click', () => {
 /* Inicializa con la opción seleccionada (gruesa) */
 calcPizza();
 </script>
+
+
