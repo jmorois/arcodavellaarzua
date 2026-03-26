@@ -279,5 +279,31 @@ const renderNombre = (n: string): NombreInfo => {
 <style>
 /* (tus estilos originales siguen igual) */
 </style>
+<script is:inline>
+  // 1. Al cargar la página, restauramos lo que había en la "mochila"
+  document.addEventListener('DOMContentLoaded', () => {
+    const guardado = localStorage.getItem('seleccion_menu');
+    if (guardado) {
+      const ingredientes = JSON.parse(guardado);
+      // Buscamos todos los checkboxes y marcamos los que coincidan
+      document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+        if (ingredientes.includes(el.id || el.value || el.name)) {
+          el.checked = true;
+        }
+      });
+    }
+  });
 
+  // 2. Cada vez que el usuario toca algo, lo anotamos en la "mochila"
+  document.addEventListener('change', (e) => {
+    if (e.target.type === 'checkbox') {
+      const seleccionados = [];
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
+        // Guardamos un identificador único del ingrediente
+        seleccionados.push(el.id || el.value || el.name);
+      });
+      localStorage.setItem('seleccion_menu', JSON.stringify(seleccionados));
+    }
+  });
+</script>
 
