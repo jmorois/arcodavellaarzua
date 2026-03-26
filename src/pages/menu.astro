@@ -280,30 +280,48 @@ const renderNombre = (n: string): NombreInfo => {
 /* (tus estilos originales siguen igual) */
 </style>
 <script is:inline>
-  // 1. Al cargar la página, restauramos lo que había en la "mochila"
-  document.addEventListener('DOMContentLoaded', () => {
-    const guardado = localStorage.getItem('seleccion_menu');
+  // Esta función crea un "DNI" único basado en el orden de la fila en la tabla
+  function obtenerIDUnico(checkbox) {
+    // Buscamos la fila (tr) donde está el checkbox para saber su posición
+    const fila = checkbox.closest('tr');
+    if (fila) {
+      return `fila-${fila.rowIndex}`; // Ejemplo: "fila-3"
+    }
+    // Si no hay tabla, usamos el índice general de todos los checks
+    const todos = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+    return `check-${todos.indexOf(checkbox)}`;
+  }
+
+  function guardarSeleccion() {
+    const marcados = [];
+    document.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
+      marcados.push(obtenerIDUnico(cb));
+    });
+    localStorage.setItem('menu_arcodavella', JSON.stringify(marcados));
+  }
+
+  function cargarSeleccion() {
+    const guardado = localStorage.getItem('menu_arcodavella');
     if (guardado) {
-      const ingredientes = JSON.parse(guardado);
-      // Buscamos todos los checkboxes y marcamos los que coincidan
-      document.querySelectorAll('input[type="checkbox"]').forEach(el => {
-        if (ingredientes.includes(el.id || el.value || el.name)) {
-          el.checked = true;
+      const lista = JSON.parse(guardado);
+      document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        if (lista.includes(obtenerIDUnico(cb))) {
+          cb.checked = true;
+        } else {
+          cb.checked = false; // Aseguramos que se desmarque si no está en la lista
         }
       });
     }
-  });
+  }
 
-  // 2. Cada vez que el usuario toca algo, lo anotamos en la "mochila"
+  // Escuchar cambios
   document.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
-      const seleccionados = [];
-      document.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
-        // Guardamos un identificador único del ingrediente
-        seleccionados.push(el.id || el.value || el.name);
-      });
-      localStorage.setItem('seleccion_menu', JSON.stringify(seleccionados));
+      guardarSeleccion();
     }
   });
-</script>
 
+  // Cargar al entrar y tras un pequeño delay por si el idioma tarda en cargar el DOM
+  document.addEventListener('DOMContentLoaded', cargarSeleccion);
+  setTimeout(cargarSeleccion, 200);
+</script>
