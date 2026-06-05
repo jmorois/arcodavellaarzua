@@ -220,7 +220,7 @@
     "hoursH2": "Opening hours",
     "hours": {
       "school": "School term (Mon–Fri): 8:30–16:00 and 20:00–close (+22:30)",
-      "outOfSchool": "Out of term (Mon–Fri): 11:30–16:00 and 20:00–close (+23:00)",
+      "outOfSchool": "Out of term (Mon–Fri): 11:30 to closing (+23:00)",
       "weekends": "Weekends & holidays: 20:00–close (+23:00)"
     },
     "howToArrive": "How to get here",

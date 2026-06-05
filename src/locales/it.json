@@ -216,7 +216,7 @@
     "hoursH2": "Horaires",
     "hours": {
       "school": "Période scolaire (lun–ven) : 8h30–16h00 et 20h00–fermeture (+22h30)",
-      "outOfSchool": "Hors période scolaire (lun–ven) : 11h30–16h00 et 20h00–fermeture (+23h00)",
+      "outOfSchool": "Hors période scolaire (lun–ven) : 11h30 fino alla chiusura (+23h00)",
       "weekends": "Week-ends et jours fériés : 20h00–fermeture (+23h00)"
     },
     "howToArrive": "Comment venir",

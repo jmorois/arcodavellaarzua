@@ -198,7 +198,7 @@
     "hoursH2": "Horario",
     "hours": {
       "school": "Curso escolar (lunes a viernes): 8:30 – 16:00 y 20:00 – cierre (+22:30)",
-      "outOfSchool": "Fuera de curso escolar (lunes a viernes): 11:30 – 16:00 y 20:00 – cierre (+23:00)",
+      "outOfSchool": "Fuera de curso escolar (lunes a viernes): 11:30 a cierre (+23:00)",
       "weekends": "Fines de semana y festivos: 20:00 – cierre (+23:00)"
     },
     "howToArrive": "Cómo llegar",
